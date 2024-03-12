@@ -536,7 +536,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-
+      ".element:hover {opacity: 0.8; \/* 80% Transparenz *\/ transition: opacity 0.3s; \/* Übergangseffekt *\/}"
     ]
   }
 }
