@@ -33,6 +33,25 @@
 {% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+  <script>
+  // JavaScript, um die Ankündigungen nacheinander anzuzeigen
+  const announcementBar = document.querySelector('.announcement-bar');
+  const announcementTexts = document.querySelectorAll('.announcement-text');
+  let currentIndex = 0;
+
+  function showNextAnnouncement() {
+    announcementTexts.forEach(text => {
+      text.style.display = 'none';
+    });
+    announcementTexts[currentIndex].style.display = 'inline-block';
+    currentIndex = (currentIndex + 1) % announcementTexts.length;
+  }
+
+  setInterval(showNextAnnouncement, 5000); // Anpassen des Intervalls zwischen den Ankündigungen
+</script>
+
+</body>
+</html>
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
       <style>
@@ -398,6 +417,7 @@
       "label": "t:sections.header.settings.color_text.label",
       "default": "#ffffff"
     }
+    
   ]
 }
 {% endschema %}

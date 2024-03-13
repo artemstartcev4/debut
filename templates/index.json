@@ -1,30 +1,28 @@
 {
   "sections": {
-    "feature-row": {
-      "type": "feature-row",
-      "custom_css": [
-
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Neck_Beauty.jpg",
-        "layout": "left",
-        "title": "GentleSkin",
-        "text": "<p>Entdecke das Geheimnis strahlender Schönheit mit unserem revolutionären Nackenschönheitsgerät! Erlebe eine Welt voller jugendlicher Ausstrahlung und straffer Konturen, während unser innovatives Gerät sanft und effektiv die Zeichen der Zeit bekämpft. Tauche ein in ein Gefühl von Luxus und Verwöhnung, das deine Haut verwandeln wird. Bereit für straffere Haut und ein selbstbewusstes Auftreten? Beginne deine Reise zu zeitloser Schönheit noch heute!<\/p>",
-        "button_label": "",
-        "button_link": "shopify:\/\/products\/gentleskin"
-      }
-    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
+        "text_block_cktVwa": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/NeckBeauty.jpg",
+            "title": "GentleSkin",
+            "text": "<p>Erleben Sie die revolutionäre Pflege für Ihren Hals mit unserem GentleSkin. Entwickelt, um die empfindliche Haut Ihres Halses zu straffen und zu glätten, bietet unser Gerät eine gezielte Lösung für ein jugendlicheres Erscheinungsbild. Genießen Sie straffere Konturen und eine verbesserte Hautelastizität für ein selbstbewusstes und elegantes Auftreten.<\/p>",
+            "button_label": "Jetzt Anschauen",
+            "button_link": "shopify:\/\/products\/gentleskin"
+          }
+        },
         "feature-columns-0": {
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "title": "Add a title or tagline",
-            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
-            "button_label": "",
-            "button_link": ""
+            "image": "shopify:\/\/shop_images\/Bild_2024-03-12_003904707.png",
+            "title": "GentleClear",
+            "text": "<p>Entdecken Sie unsere hochwirksame Lösung gegen lästige Mitesser: Unser GentleClear.<br\/>Mit seiner kraftvollen Technologie reinigt er Ihre Haut gründlich und effektiv, für ein spürbar frischeres und klareres Hautbild. Verabschieden Sie sich von hartnäckigen Mitessern und freuen Sie sich auf eine revitalisierte Haut voller Strahlkraft.<\/p>",
+            "button_label": "Jetzt Anschauen",
+            "button_link": "shopify:\/\/products\/gentleclear"
           }
         },
         "feature-columns-1": {
@@ -46,12 +44,24 @@
             "button_label": "",
             "button_link": ""
           }
+        },
+        "text_block_wKWQwp": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "Add a title or tagline",
+            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "button_label": "",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
+        "text_block_cktVwa",
         "feature-columns-0",
         "feature-columns-1",
-        "feature-columns-2"
+        "feature-columns-2",
+        "text_block_wKWQwp"
       ],
       "settings": {
         "title": "",
@@ -155,7 +165,6 @@
     }
   },
   "order": [
-    "feature-row",
     "feature-columns",
     "collection",
     "hero-2",
