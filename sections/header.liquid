@@ -11,22 +11,23 @@
         margin: 0;
       }
     {% endif %}
-     /* Animation für die Announcement-Bar */
-    .announcement-bar p {
-      white-space: nowrap; /* Verhindert den Zeilenumbruch */
-      overflow: hidden; /* Versteckt den überschüssigen Text */
-      animation: moveText 10s linear infinite; /* Bewegungsanimation */
-    }
+     .announcement-bar {
+  overflow: hidden;
+}
 
-    /* Bewegungsanimation für den Text */
-    @keyframes moveText {
-      0% {
-        transform: translateX(-100%); /* Startposition ganz links */
-      }
-      100% {
-        transform: translateX(100%); /* Endposition ganz rechts */
-      }
-    }
+.announcement-bar__message {
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
   </style>
 {% endif %}
 
