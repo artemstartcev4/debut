@@ -3,8 +3,7 @@
     "feature-row": {
       "type": "feature-row",
       "custom_css": [
-        ".product-image {transition: transform 0.3s ease-in-out;}",
-        ".product-image:hover {transform: scale(1.05) rotate(3deg);}"
+
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Neck_Beauty.jpg",
