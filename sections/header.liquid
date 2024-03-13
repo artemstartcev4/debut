@@ -11,22 +11,28 @@
         margin: 0;
       }
     {% endif %}
-     /* Animation für die Announcement-Bar */
-    .announcement-bar p {
-      white-space: nowrap; /* Verhindert den Zeilenumbruch */
-      overflow: hidden; /* Versteckt den überschüssigen Text */
-      animation: moveText 10s linear infinite; /* Bewegungsanimation */
-    }
+     .announcement-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8d7da; /* Hintergrundfarbe anpassen */
+    color: #721c24; /* Textfarbe anpassen */
+    padding: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
-    /* Bewegungsanimation für den Text */
-    @keyframes moveText {
-      0% {
-        transform: translateX(-100%); /* Startposition ganz links */
-      }
-      100% {
-        transform: translateX(100%); /* Endposition ganz rechts */
-      }
-    }
+.announcement-bar::before {
+    content: "DEIN TEXT HIER"; /* Hier den Text für die dauerhafte Animation einfügen */
+    animation: marquee 20s linear infinite; /* Dauer und Art der Animation anpassen */
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
   </style>
 {% endif %}
 
