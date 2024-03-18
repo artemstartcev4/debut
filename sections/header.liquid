@@ -24,7 +24,6 @@
       .announcement-bar__message {
         white-space: nowrap; /* Verhindert Zeilenumbrüche */
         overflow: hidden; /* Verhindert das Überlaufen des Textes */
-        position: absolute; /* Positioniert den Text */
         animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
       }
     {% endif %}
@@ -38,7 +37,7 @@
 
       messages.forEach(function(message) {
         message.style.animationDelay = delay + 's'; // Setzt die Verzögerung für jeden Text
-        delay += 2; // Inkrementiert die Verzögerung für den nächsten Text
+        delay += 10; // Inkrementiert die Verzögerung für den nächsten Text
       });
     });
   </script>
