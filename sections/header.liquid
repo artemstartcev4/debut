@@ -53,54 +53,56 @@
       <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     </marquee>
   </div>
+<style>
+.announcement-bar__message {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.scrolling-text {
+    display: inline-block;
+    padding-right: 20px;
+    animation: scroll 10s linear infinite; /* Anpassen der Dauer der Animation */
+}
+</style>
+
+<div class="announcement-bar__message">
+    <span class="scrolling-text">{{ section.settings.message_text | escape }}</span>
+</div>
+
 <script>
 (function() {
     var announcementBar = document.querySelector('.announcement-bar__message');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
     var insertInterval = 2000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
-    var animationDuration = 10; // Dauer der Animation (in Sekunden)
 
-    // Funktion zum Einfügen eines neuen Textabschnitts und Starten einer neuen Animation
-    function insertNewTextAndAnimation() {
+    // Funktion zum Einfügen eines neuen Textabschnitts
+    function insertNewText() {
         var newMessage = document.createElement('span');
         newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
         
-        var newAnimation = document.createElement('style');
-        newAnimation.innerText = `@keyframes scroll-${Date.now()} {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
-        }
-        .scrolling-text {
-            display: inline-block;
-            padding-right: 20px;
-            animation: scroll-${Date.now()} linear infinite;
-        }`;
-        document.head.appendChild(newAnimation);
-        
         setTimeout(function() {
             announcementBar.removeChild(newMessage);
-            document.head.removeChild(newAnimation);
-        }, animationDuration * 1000); // Entfernen des Textabschnitts und der Animation nach der Dauer
+        }, 10000); // Entfernen des Textabschnitts nach 10 Sekunden
     }
 
-    // Initialisieren der ersten Animation
-    insertNewTextAndAnimation();
-
-    // Einfügen des Textabschnitts und Starten der Animation in regelmäßigen Abständen
+    // Einfügen des Textabschnitts in regelmäßigen Abständen
     setInterval(function() {
-        insertNewTextAndAnimation();
+        insertNewText();
     }, insertInterval);
 })();
 </script>
-
-<style>
-.announcement-bar__message {
-    overflow: hidden; /* Versteckt den überlaufenden Text */
-    white-space: nowrap; /* Verhindert das Umbrechen des Textes */
-}
-</style>
     {% endif %}
   {% endif %}
 
