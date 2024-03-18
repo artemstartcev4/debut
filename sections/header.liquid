@@ -66,18 +66,18 @@
     var scrollSpeed = 1; // Geschwindigkeit der Bewegung (in Pixel)
     var insertInterval = 1500; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
 
-    // Funktion zum Starten der Animation für den ursprünglichen Text
-    function startScrolling() {
-        var distance = announcementBar.offsetWidth; // Breite des Textes
+    // Funktion zum Starten der Animation für einen Textabschnitt
+    function startScrolling(textElement) {
+        var distance = textElement.offsetWidth; // Breite des Textes
         var position = 0;
 
         // Funktion zur Animation des Textes
         function scroll() {
             position += scrollSpeed;
             if (position > distance) {
-                position = -announcementBar.offsetWidth; // Setzt die Position zurück, um die Animation zu wiederholen
+                position = -distance; // Setzt die Position zurück, um die Animation zu wiederholen
             }
-            announcementBar.style.transform = 'translateX(' + position + 'px)';
+            textElement.style.transform = 'translateX(' + position + 'px)';
             requestAnimationFrame(scroll);
         }
 
@@ -85,18 +85,24 @@
         scroll();
     }
 
-    // Funktion zum Einfügen eines neuen Textes
+    // Funktion zum Einfügen eines neuen Textabschnitts
     function insertNewText() {
         var newMessage = document.createElement('span');
         newMessage.className = 'spacer';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
+        startScrolling(newMessage); // Starten der Animation für den neuen Text
     }
 
-    // Setzen des ursprünglichen Textes und Starten der Animation
-    announcementBar.innerHTML = '<span class="spacer"> </span>' + originalMessage;
-    startScrolling();
-    setInterval(insertNewText, insertInterval); // Einfügen des Textes in regelmäßigen Abständen
+    // Setzen des ursprünglichen Textabschnitts und Starten seiner Animation
+    var originalText = document.createElement('span');
+    originalText.className = 'spacer';
+    originalText.innerText = originalMessage;
+    announcementBar.appendChild(originalText);
+    startScrolling(originalText);
+
+    // Einfügen des Textabschnitts in regelmäßigen Abständen
+    setInterval(insertNewText, insertInterval);
 })();
 </script>
     {% endif %}
