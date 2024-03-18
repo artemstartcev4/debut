@@ -11,28 +11,9 @@
         margin: 0;
       }
     {% endif %}
-    
-    /* Stil für die Ankündigungsleiste */
-    .announcement-bar__message {
-      /* Hier können Sie den Stil für den Text der Ankündigungsleiste festlegen */
-      /* Zum Beispiel: */
-      padding: 10px; /* Platz um den Text */
-      background-color: black; /* Hintergrundfarbe */
-      color: white; /* Textfarbe */
-      border: 1px solid #333; /* Rahmen */
-    }
-
-    /* Stil für das "true" */
-    .announcement-bar__message span {
-      display: none; /* Versteckt das "true" */
-    }
   </style>
-
-  <div class="announcement-bar__message">
-    {{ section.settings.message }}
-    <span>{{ section.settings.message }}</span> <!-- Dies versteckt das "true" -->
-  </div>
 {% endif %}
+
 {% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
