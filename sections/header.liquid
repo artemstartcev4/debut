@@ -1,5 +1,5 @@
 {% if section.settings.message %}
- <style>
+  <style>
     {% if section.settings.logo != blank %}
       .site-header__logo-image {
         max-width: {{ section.settings.logo_max_width | escape }}px;
@@ -10,6 +10,8 @@
       .site-header__logo-image {
         margin: 0;
       }
+
+      /* Animation für den Text der Ankündigungsleiste */
       @keyframes slide-in-from-left {
         0% {
           transform: translateX(-100%);
@@ -28,7 +30,11 @@
   </style>
 
   <script>
-    document.documentElement.style.setProperty('--animation-cycles', document.querySelector('.announcement-bar__message').scrollWidth / document.querySelector('.announcement-bar__message').offsetWidth);
+    document.addEventListener('DOMContentLoaded', function() {
+      var messageElement = document.querySelector('.announcement-bar__message');
+      var animationCycles = messageElement.scrollWidth / messageElement.offsetWidth;
+      messageElement.style.setProperty('--animation-cycles', animationCycles);
+    });
   </script>
 {% endif %}
 
