@@ -36,7 +36,6 @@
             {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
             background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
           {% endif %}
-        }
 
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
