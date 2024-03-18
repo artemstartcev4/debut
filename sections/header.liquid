@@ -1,5 +1,5 @@
 {% if section.settings.message %}
- <style>
+<style>
   /* Stil für die Ankündigungsleiste */
   .announcement-bar {
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
@@ -10,7 +10,7 @@
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    animation: moveText linear infinite; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
@@ -22,10 +22,7 @@
   }
 
   @keyframes moveText {
-    0% {
-      transform: translateX(100%); /* Startpunkt der Animation */
-    }
-    100% {
+    to {
       transform: translateX(-100%); /* Endpunkt der Animation */
     }
   }
@@ -33,12 +30,9 @@
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
   <div class="announcement-bar__inner">
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <!-- Platz für weitere Nachrichten -->
+    {% for message in section.settings.messages %}
+      <p class="announcement-bar__message">{{ message | escape }}</p>
+    {% endfor %}
   </div>
 </div>
 
@@ -50,10 +44,20 @@
     newMessage.classList.add('announcement-bar__message');
     newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
     messageContainer.appendChild(newMessage);
+
+    // Aktualisieren der Animation
+    updateAnimationDuration();
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
+
+  // Funktion zur Aktualisierung der Animation
+  function updateAnimationDuration() {
+    var messageCount = document.querySelectorAll('.announcement-bar__message').length;
+    var animationDuration = messageCount * 5 + 's'; // 5 Sekunden pro Nachricht
+    document.querySelector('.announcement-bar__inner').style.animationDuration = animationDuration;
+  }
 </script>
 {% endif %}
 
