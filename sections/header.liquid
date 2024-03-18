@@ -66,19 +66,10 @@
         newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
-        startScrolling(newMessage);
         setTimeout(function() {
             announcementBar.removeChild(newMessage);
         }, animationDuration * 1000); // Entfernen des Textabschnitts nach der Animation
     }
-
-    // Funktion zum Starten der Animation für einen Textabschnitt
-    function startScrolling(textElement) {
-        textElement.style.animation = 'scroll ' + animationDuration + 's linear'; // Setzen der Animationsdauer
-    }
-
-    // Einfügen des ursprünglichen Textabschnitts und Starten der Animation
-    insertNewText();
 
     // Einfügen des Textabschnitts in regelmäßigen Abständen
     setInterval(function() {
@@ -95,15 +86,16 @@
 
 .scrolling-text {
     display: inline-block; /* Erlaubt die Verwendung von padding */
-    padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
+    padding-left: 100%; /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
+    animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
 }
 
 @keyframes scroll {
     from {
-        transform: translateX(100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs rechts */
+        transform: translateX(0); /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
     }
     to {
-        transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs links */
+        transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs rechts */
     }
 }
 </style>
