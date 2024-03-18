@@ -10,6 +10,20 @@
       .site-header__logo-image {
         margin: 0;
       }
+      @keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Wende die Animation auf die Ankündigungsleiste an */
+.announcement-bar {
+  background-color: {{ section.settings.color_bg }};
+  animation: slideIn 0.5s forwards; /* Hier wird die Animation auf die Ankündigungsleiste angewendet */
+}
     {% endif %}
   </style>
 {% endif %}
