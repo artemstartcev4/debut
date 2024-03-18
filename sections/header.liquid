@@ -66,7 +66,7 @@
     var scrollSpeed = 1; // Geschwindigkeit der Bewegung (in Pixel)
     var insertInterval = 1500; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
 
-    // Funktion zum Starten der Animation
+    // Funktion zum Starten der Animation für den ursprünglichen Text
     function startScrolling() {
         var distance = announcementBar.offsetWidth; // Breite des Textes
         var position = 0;
@@ -87,15 +87,16 @@
 
     // Funktion zum Einfügen eines neuen Textes
     function insertNewText() {
-        setTimeout(function() {
-            announcementBar.insertAdjacentHTML('beforeend', '<span class="spacer"> </span>' + originalMessage);
-        }, insertInterval);
+        var newMessage = document.createElement('span');
+        newMessage.className = 'spacer';
+        newMessage.innerText = originalMessage;
+        announcementBar.appendChild(newMessage);
     }
 
     // Setzen des ursprünglichen Textes und Starten der Animation
     announcementBar.innerHTML = '<span class="spacer"> </span>' + originalMessage;
     startScrolling();
-    insertNewText(); // Erstes Einfügen des Textes
+    setInterval(insertNewText, insertInterval); // Einfügen des Textes in regelmäßigen Abständen
 })();
 </script>
     {% endif %}
