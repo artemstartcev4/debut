@@ -27,15 +27,15 @@
 .scrolling-text {
     display: inline-block; /* Erlaubt die Verwendung von padding */
     padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
-    animation: scroll 10s linear infinite; /* CSS-Animation für das Scrollen des Textes */
+    animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
 }
 
 @keyframes scroll {
     from {
-        transform: translateX(-100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
+        transform: translateX(100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs rechts */
     }
     to {
-        transform: translateX(100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs rechts */
+        transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs links */
     }
 }
   </style>
@@ -75,7 +75,8 @@
 (function() {
     var announcementBar = document.querySelector('.announcement-bar__message');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
-    var insertInterval = 1500; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
+    var insertInterval = 3000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
+    var animationDuration = 10; // Dauer der Animation (in Sekunden)
 
     // Funktion zum Einfügen eines neuen Textabschnitts
     function insertNewText() {
@@ -85,14 +86,23 @@
         announcementBar.appendChild(newMessage);
         setTimeout(function() {
             announcementBar.removeChild(newMessage);
-        }, insertInterval); // Entfernen des Textabschnitts nach einer gewissen Zeit
+        }, animationDuration * 1000); // Entfernen des Textabschnitts nach der Animation
+    }
+
+    // Funktion zum Starten der Animation für einen Textabschnitt
+    function startScrolling(textElement) {
+        textElement.style.animationDuration = animationDuration + 's'; // Setzen der Animationsdauer
     }
 
     // Einfügen des ursprünglichen Textabschnitts und Starten der Animation
     insertNewText();
+    startScrolling(announcementBar.querySelector('.scrolling-text'));
 
     // Einfügen des Textabschnitts in regelmäßigen Abständen
-    setInterval(insertNewText, insertInterval);
+    setInterval(function() {
+        insertNewText();
+        startScrolling(announcementBar.querySelector('.scrolling-text:last-child'));
+    }, insertInterval);
 })();
 </script>
     {% endif %}
