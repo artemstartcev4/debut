@@ -20,28 +20,7 @@
       justify-content: center; /* Horizontal zentrieren */
       align-items: center; /* Vertikal zentrieren */
     }
-    .announcement-bar__message {
-    overflow: hidden; /* Versteckt den überlaufenden Text */
-    white-space: nowrap; /* Verhindert das Umbrechen des Textes */
-}
-.scrolling-text {
-    display: inline-block; /* Erlaubt die Verwendung von padding */
-    padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
-}
-
-.scrolling-text {
-    animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs rechts */
-    }
-    to {
-        transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs links */
-    }
-}
-  </style>
+    
 {% endif %}
 
 {% render 'search-drawer' %}
@@ -87,6 +66,7 @@
         newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
+        startScrolling(newMessage);
         setTimeout(function() {
             announcementBar.removeChild(newMessage);
         }, animationDuration * 1000); // Entfernen des Textabschnitts nach der Animation
@@ -94,12 +74,11 @@
 
     // Funktion zum Starten der Animation für einen Textabschnitt
     function startScrolling(textElement) {
-        textElement.style.animationDuration = animationDuration + 's'; // Setzen der Animationsdauer
+        textElement.style.animation = 'scroll ' + animationDuration + 's linear'; // Setzen der Animationsdauer
     }
 
     // Einfügen des ursprünglichen Textabschnitts und Starten der Animation
     insertNewText();
-    startScrolling(announcementBar.querySelector('.scrolling-text'));
 
     // Einfügen des Textabschnitts in regelmäßigen Abständen
     setInterval(function() {
@@ -113,13 +92,10 @@
     overflow: hidden; /* Versteckt den überlaufenden Text */
     white-space: nowrap; /* Verhindert das Umbrechen des Textes */
 }
+
 .scrolling-text {
     display: inline-block; /* Erlaubt die Verwendung von padding */
     padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
-}
-
-.scrolling-text {
-    animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
 }
 
 @keyframes scroll {
@@ -130,6 +106,7 @@
         transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs links */
     }
 }
+</style>
     {% endif %}
   {% endif %}
 
