@@ -292,6 +292,17 @@
   ],
   "url": {{ shop.url | append: page.url | json }}
 }
+    document.addEventListener("DOMContentLoaded", function() {
+      // Funktion zum Klonen des Textelements
+      function cloneAnnouncement() {
+        const announcementBar = document.querySelector('.announcement-bar__message');
+        const clonedAnnouncement = announcementBar.cloneNode(true);
+        announcementBar.appendChild(clonedAnnouncement);
+      }
+
+      // Ankündigungsklon alle x Millisekunden erstellen
+      setInterval(cloneAnnouncement, 3000); // Hier können Sie die Geschwindigkeit der Animation anpassen (in Millisekunden)
+    });
 </script>
 
 {% if request.page_type == 'index' %}
