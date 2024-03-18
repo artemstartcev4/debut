@@ -10,7 +10,7 @@
       .site-header__logo-image {
         margin: 0;
       }
-    /* Füge diese CSS-Regel hinzu, um die Animation zu definieren */
+   /* Füge diese CSS-Regel hinzu, um die Animation zu definieren */
     @keyframes slideIn {
       from {
         transform: translateX(-100%);
@@ -24,8 +24,8 @@
     .announcement-bar__message {
       color: {{ section.settings.color_text }};
       animation: slideIn 0.5s forwards; /* Hier wird die Animation auf den Text angewendet */
+      margin-bottom: 10px; /* Füge Abstand zwischen den Textabschnitten hinzu */
     }
-}
     {% endif %}
   </style>
 {% endif %}
@@ -58,13 +58,15 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-    {%- unless section.settings.message_link == blank -%}
-      <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
-    {%- endunless -%}
-        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    {%- unless section.settings.message_link == blank -%}
-      </a>
-    {%- endunless -%}
+    {% for message in section.settings.messages %}
+      {%- unless message.link == blank -%}
+        <a href="{{ message.link }}" class="announcement-bar__link">
+      {%- endunless -%}
+          <p class="announcement-bar__message">{{ message.text | escape }}</p>
+      {%- unless message.link == blank -%}
+        </a>
+      {%- endunless -%}
+    {% endfor %}
   </div>
 
     {% endif %}
