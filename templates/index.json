@@ -1,5 +1,52 @@
 {
   "sections": {
+    "meine_neue_announcement_bar_Rag74m": {
+      "type": "meine-neue-announcement-bar",
+      "blocks": {
+        "text_geQN9B": {
+          "type": "text",
+          "settings": {
+            "text": "Dein Trust Text hier"
+          }
+        },
+        "text_Rt4AFm": {
+          "type": "text",
+          "settings": {
+            "text": "Dein Trust Text hier"
+          }
+        },
+        "text_a3Q46m": {
+          "type": "text",
+          "settings": {
+            "text": "Dein Trust Text hier"
+          }
+        },
+        "text_pqjDUy": {
+          "type": "text",
+          "settings": {
+            "text": "Dein Trust Text hier"
+          }
+        },
+        "text_qCb9WC": {
+          "type": "text",
+          "settings": {
+            "text": "Dein Trust Text hier"
+          }
+        }
+      },
+      "block_order": [
+        "text_geQN9B",
+        "text_Rt4AFm",
+        "text_a3Q46m",
+        "text_pqjDUy",
+        "text_qCb9WC"
+      ],
+      "settings": {
+        "background": "#f5f5f5",
+        "text-color": "#000000",
+        "font-size": 12
+      }
+    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
@@ -165,6 +212,7 @@
     }
   },
   "order": [
+    "meine_neue_announcement_bar_Rag74m",
     "feature-columns",
     "collection",
     "hero-2",

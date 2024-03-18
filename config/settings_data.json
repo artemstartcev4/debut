@@ -7,7 +7,7 @@
           "align_logo": "left",
           "logo_max_width": 100,
           "main_linklist": "main-menu",
-          "message": true,
+          "message": false,
           "home_page_only": false,
           "message_text": "FREE SHIPPING On 40+€ Orders!",
           "message_link": "",
