@@ -76,7 +76,6 @@
 </style>
 
 <div class="announcement-bar__message" id="announcement-bar">
-    <span class="scrolling-text">{{ section.settings.message_text | escape }}</span>
 </div>
 
 <script>
@@ -92,7 +91,7 @@
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
         
-        var animationDuration = newMessage.offsetWidth / announcementBar.offsetWidth * 10; // Dauer abhängig von der Textlänge
+        var animationDuration = announcementBar.offsetWidth / newMessage.offsetWidth * 10; // Dauer abhängig von der Textlänge
         newMessage.style.animationDuration = animationDuration + 's'; // Setzen der Animation-Dauer für den neuen Textabschnitt
         
         setTimeout(function() {
