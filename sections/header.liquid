@@ -10,12 +10,12 @@
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    color: white; /* Textfarbe auf Weiß setzen */
-    font-size: 12px; /* Schriftgröße kleiner machen */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
+    color: white; /* Textfarbe auf Weiß setzen */
+    font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
     white-space: nowrap; /* Verhindern, dass der Text umbricht */
     padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
@@ -32,24 +32,24 @@
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-  <div class="announcement-bar__inner" id="announcement-bar-inner">
-    <!-- Platz für Nachrichten -->
+  <div class="announcement-bar__inner">
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <!-- Platz für weitere Nachrichten -->
   </div>
 </div>
 
 <script>
   // Funktion zum regelmäßigen Hinzufügen neuer Texte
   function addNewMessage() {
-    var messageContainer = document.getElementById('announcement-bar-inner');
+    var messageContainer = document.querySelector('.announcement-bar__inner');
     var newMessage = document.createElement('p');
     newMessage.classList.add('announcement-bar__message');
     newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
     messageContainer.appendChild(newMessage);
-
-    // Überprüfen, ob genügend Nachrichten vorhanden sind und ggf. die ersten entfernen
-    if (messageContainer.childElementCount > 5) {
-      messageContainer.removeChild(messageContainer.firstElementChild);
-    }
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
