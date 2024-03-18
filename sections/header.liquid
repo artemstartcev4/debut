@@ -47,11 +47,6 @@
   function addNewMessage() {
   var messageContainer = document.querySelector('.announcement-bar__inner');
   
-  // Den ältesten Text entfernen, falls vorhanden
-  if (messageContainer.children.length >= 5) {
-    messageContainer.removeChild(messageContainer.firstElementChild);
-  }
-  
   var newMessage = document.createElement('p');
   newMessage.classList.add('announcement-bar__message');
   newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
