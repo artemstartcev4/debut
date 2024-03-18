@@ -5,13 +5,14 @@
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
     padding: 5px; /* Ränder verkleinern */
     height: auto; /* Automatische Höhe basierend auf Inhalt */
-    overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
+    /* overflow: hidden;  */ /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
   }
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
     white-space: nowrap; /* Verhindern, dass der Text umbricht */
+    overflow: visible; /* Inhalt sichtbar machen */
   }
 
   .announcement-bar__message {
@@ -51,6 +52,7 @@
   setInterval(moveText, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
+
 
 
 
