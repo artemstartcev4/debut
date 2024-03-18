@@ -1,5 +1,10 @@
 {% if section.settings.message %}
   <style>
+    .announcement-bar {
+      background-color: {{ section.settings.color_bg }};
+      color: {{ section.settings.color_text }};
+      padding: 10px 20px;
+    }
     {% if section.settings.logo != blank %}
       .site-header__logo-image {
         max-width: {{ section.settings.logo_max_width | escape }}px;
@@ -22,10 +27,6 @@
       <style>
         .announcement-bar {
           background-color: {{ section.settings.color_bg }};
-          overflow: hidden; /* Verhindert horizontales Scrollen */
-          white-space: nowrap; /* Verhindert Zeilenumbruch */
-          position: relative;
-          
         }
 
         .announcement-bar__link:hover {
@@ -39,31 +40,16 @@
             background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
           {% endif %}
         }
-        .announcement-bar__message-container {
-          display: inline-block;
-          position: absolute; /* Position relativ zum übergeordneten Container */
-          top: 0; /* Oben ausrichten */
-          animation: marquee 15s linear infinite; /* Animationsdefinition */
-        }
-        .announcement-bar:hover .announcement-bar__message-container {
-      animation-play-state: paused; /* Animation anhalten, wenn der Mauszeiger über der Leiste ist */
-    }
 
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
-          display: inline-block;
-          padding-right: 100%;
-        }
-        @keyframes marquee {
-          0% { transform: translateX(100%); } /* Startpunkt rechts außerhalb des sichtbaren Bereichs */
-          100% { transform: translateX(-100%); } /* Endpunkt links außerhalb des sichtbaren Bereichs */
         }
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-        {% for i in (1..4) %}
-          <span class="announcement-bar__message">{{ section.settings.message_text | escape }}</span>
-        {% endfor %}
+         <marquee behavior="scroll" direction="left">
+      {{ section.settings.message_text | escape }}
+    </marquee>
         {%- unless section.settings.message_link == blank -%}
           <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
         {%- endunless -%}
@@ -320,7 +306,6 @@
       },
       "url": {{ shop.url | append: page.url | json }}
     }
-    
   </script>
 {% endif %}
 
