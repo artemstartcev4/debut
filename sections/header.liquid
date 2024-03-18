@@ -40,6 +40,7 @@
           {% endif %}
         }
         .announcement-bar__message-container {
+          display: inline-block;
           position: absolute; /* Position relativ zum übergeordneten Container */
           top: 0; /* Oben ausrichten */
           animation: marquee 15s linear infinite; /* Animationsdefinition */
@@ -60,7 +61,6 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-        <div class="announcement-bar__message-container">
         {% for i in (1..4) %}
           <span class="announcement-bar__message">{{ section.settings.message_text | escape }}</span>
         {% endfor %}
