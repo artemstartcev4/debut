@@ -10,9 +10,10 @@
 
   .announcement-bar__inner {
     position: relative; /* Relative Positionierung für die Kinder */
-    width: 100vw; /* Breite auf 100% der Viewport-Breite setzen */
+    width: 100%; /* Breite auf 100% setzen */
     white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
-    animation: moveText linear infinite; /* Animationseigenschaften festlegen */
+    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    display: flex; /* Flexbox verwenden */
   }
 
   .announcement-bar__message {
@@ -20,7 +21,7 @@
     font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
     padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-    display: inline-block; /* Inline-Block, um die Breite des Inhalts zu verwenden */
+    animation: fadeIn linear 2s forwards; /* Text-Einblendanimation */
   }
 
   @keyframes moveText {
@@ -29,6 +30,15 @@
     }
     100% {
       transform: translateX(-100%); /* Endpunkt der Animation - Text verschwindet ganz links */
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0; /* Startpunkt der Einblendung - Text ist unsichtbar */
+    }
+    100% {
+      opacity: 1; /* Endpunkt der Einblendung - Text ist vollständig sichtbar */
     }
   }
 </style>
@@ -61,6 +71,7 @@
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
+
 
 
 
