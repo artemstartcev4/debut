@@ -11,13 +11,13 @@
         margin: 0;
       }
     {% endif %}
-
+[data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section] + .announcement-bar {
+      margin-top: 10px; /* Ändere diese Zahl entsprechend deiner gewünschten Abstandshöhe */
+    }
     
   </style>
 {% endif %}
-[data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section] {
-  margin-bottom: -20px; /* Ändere diese Zahl entsprechend deiner gewünschten Abstandshöhe */
-}
+
 {% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
