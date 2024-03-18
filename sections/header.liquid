@@ -21,11 +21,23 @@
       align-items: center; /* Vertikal zentrieren */
     }
     .announcement-bar__message {
-      margin: 0; /* Außenabstände entfernen */
-      font-size: 14px; /* Schriftgröße reduzieren */
-      font-weight: normal; /* Schriftstärke auf normal setzen */
+    overflow: hidden; /* Versteckt den überlaufenden Text */
+    white-space: nowrap; /* Verhindert das Umbrechen des Textes */
+}
+.scrolling-text {
+    display: inline-block; /* Erlaubt die Verwendung von padding */
+    padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
+    animation: scroll 10s linear infinite; /* CSS-Animation für das Scrollen des Textes */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(-100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
     }
-    
+    to {
+        transform: translateX(100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs rechts */
+    }
+}
   </style>
 {% endif %}
 
@@ -83,25 +95,6 @@
     setInterval(insertNewText, insertInterval);
 })();
 </script>
-
-<style>
-.announcement-bar__message {
-    overflow: hidden; /* Versteckt den überlaufenden Text */
-    white-space: nowrap; /* Verhindert das Umbrechen des Textes */
-}
-.scrolling-text {
-    animation: scroll 10s linear infinite; /* CSS-Animation für das Scrollen des Textes */
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(-100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
-    }
-    to {
-        transform: translateX(100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs rechts */
-    }
-}
-</style>
     {% endif %}
   {% endif %}
 
