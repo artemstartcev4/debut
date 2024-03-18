@@ -10,18 +10,36 @@
       .site-header__logo-image {
         margin: 0;
       }
-      @keyframes slide-in-from-left {
+      <style>
+    {% if section.settings.logo != blank %}
+      .site-header__logo-image {
+        max-width: {{ section.settings.logo_max_width | escape }}px;
+      }
+    {% endif %}
+
+    {% if section.settings.align_logo == 'left' %}
+      .site-header__logo-image {
+        margin: 0;
+      }
+    {% endif %}
+
+    /* Animation für den Text der Ankündigungsleiste */
+    @keyframes slide-in-out {
       0% {
         transform: translateX(-100%);
       }
-      100% {
+      50% {
         transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
       }
     }
 
     .announcement-bar__message {
-      animation: slide-in-from-left 10s linear infinite; /* Dauer und Timing-Funktion anpassen */
+      animation: slide-in-out 2s linear infinite; /* Dauer und Timing-Funktion anpassen */
     }
+  </style>
     {% endif %}
   </style>
 {% endif %}
