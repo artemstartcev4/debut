@@ -114,9 +114,31 @@
     padding-right: 20px;
     animation: scroll linear infinite; /* Keine Dauer hier setzen */
 }
+<style>
+.announcement-bar__message {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.scrolling-text {
+    position: absolute;
+    animation: scroll linear infinite;
+    animation-duration: 10s; /* Geschwindigkeit der Animation */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
 </style>
 
 <div class="announcement-bar__message" id="announcement-bar">
+    <span class="scrolling-text">{{ section.settings.message_text | escape }}</span>
 </div>
 
 <script>
@@ -124,20 +146,13 @@
     var announcementBar = document.getElementById('announcement-bar');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
     var insertInterval = 2000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
-
+    
     // Funktion zum Einfügen eines neuen Textabschnitts
     function insertNewText() {
         var newMessage = document.createElement('span');
         newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
-        
-        var animationDuration = (announcementBar.offsetWidth + newMessage.offsetWidth) / announcementBar.offsetWidth * 10; // Dauer abhängig von der Textlänge
-        newMessage.style.animationDuration = animationDuration + 's'; // Setzen der Animation-Dauer für den neuen Textabschnitt
-        
-        setTimeout(function() {
-            announcementBar.removeChild(newMessage);
-        }, animationDuration * 1000); // Entfernen des Textabschnitts nach der Dauer der Animation
     }
 
     // Einfügen des Textabschnitts in regelmäßigen Abständen
@@ -146,6 +161,7 @@
     }, insertInterval);
 })();
 </script>
+
 
 
     {% endif %}
