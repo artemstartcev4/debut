@@ -14,10 +14,15 @@
     .announcement-bar {
       background-color: {{ section.settings.color_bg }};
       color: {{ section.settings.color_text }};
-      padding: 5px 10px;
+      padding: 8px 15px;
       display: flex;
       justify-content: center; /* Horizontal zentrieren */
       align-items: center; /* Vertikal zentrieren */
+    }
+    .announcement-bar__message {
+      margin: 0; /* Außenabstände entfernen */
+      font-size: 14px; /* Schriftgröße reduzieren */
+      font-weight: normal; /* Schriftstärke auf normal setzen */
     }
   </style>
 {% endif %}
