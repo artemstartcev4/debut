@@ -1,5 +1,5 @@
 {% if section.settings.message %}
-    <style>
+  <style>
     .announcement-bar {
       display: block !important;
       visibility: visible !important;
@@ -27,9 +27,16 @@
     }
   </style>
 
-{% endif %}
+  <div class="announcement-bar">
+    <div class="announcement-bar__message-container">
+      {% assign messages = section.settings.message_text | split: "\n" %}
+      {% for message in messages %}
+        <div class="announcement-bar__message">{{ message }}</div>
+      {% endfor %}
+    </div>
+  </div>
 
- <script>
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       var messages = document.querySelectorAll('.announcement-bar__message');
       var delay = 0;
@@ -39,6 +46,7 @@
       });
     });
   </script>
+{% endif %}
 
 {% render 'search-drawer' %}
 
