@@ -59,40 +59,38 @@
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
     var insertInterval = 2000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
     var animationDuration = 10; // Dauer der Animation (in Sekunden)
+    var animationCount = 0; // Zähler für die Animationen
 
-    // Funktion zum Einfügen eines neuen Textabschnitts
-    function insertNewText() {
+    // Funktion zum Einfügen eines neuen Textabschnitts und Starten einer neuen Animation
+    function insertNewTextAndAnimation() {
         var newMessage = document.createElement('span');
-        newMessage.className = 'scrolling-text';
+        newMessage.className = 'scrolling-text scrolling-text-' + animationCount;
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
-        setTimeout(function() {
-            announcementBar.removeChild(newMessage);
-        }, animationDuration * 1000); // Entfernen des Textabschnitts nach der Animation
-    }
-
-    // Funktion zum Starten einer neuen Animation
-    function startNewAnimation() {
+        
         var newAnimation = document.createElement('style');
-        newAnimation.innerText = `@keyframes scroll-${Date.now()} {
+        newAnimation.innerText = `@keyframes scroll-${animationCount} {
             from { transform: translateX(100%); }
             to { transform: translateX(-100%); }
         }
-        .scrolling-text-${Date.now()} {
+        .scrolling-text-${animationCount} {
             display: inline-block;
             padding-right: 20px;
-            animation: scroll-${Date.now()} linear infinite;
+            animation: scroll-${animationCount} linear infinite;
         }`;
         document.head.appendChild(newAnimation);
+        
         setTimeout(function() {
+            announcementBar.removeChild(newMessage);
             document.head.removeChild(newAnimation);
-        }, animationDuration * 1000); // Entfernen der Animation nach der Dauer
+        }, animationDuration * 1000); // Entfernen des Textabschnitts und der Animation nach der Dauer
+        
+        animationCount++;
     }
 
     // Einfügen des Textabschnitts und Starten der Animation in regelmäßigen Abständen
     setInterval(function() {
-        insertNewText();
-        startNewAnimation();
+        insertNewTextAndAnimation();
     }, insertInterval);
 })();
 </script>
