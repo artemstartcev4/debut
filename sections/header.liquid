@@ -10,7 +10,7 @@
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    animation: moveText linear infinite; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
@@ -29,16 +29,21 @@
       transform: translateX(-100%); /* Endpunkt der Animation */
     }
   }
+
+  /* Stoppen der Animation, wenn der Text vollständig sichtbar ist */
+  @keyframes moveTextStop {
+    from {
+      transform: translateX(0); /* Aktuelle Position des Textes */
+    }
+    to {
+      transform: translateX(0); /* Position des Textes bleibt gleich */
+    }
+  }
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
   <div class="announcement-bar__inner">
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    
     <!-- Platz für weitere Nachrichten -->
   </div>
 </div>
@@ -53,12 +58,19 @@
     
     // Neue Nachricht hinzufügen
     messageContainer.appendChild(newMessage);
+
+    // Überprüfen, ob der Text vollständig sichtbar ist
+    if (messageContainer.scrollWidth > messageContainer.clientWidth) {
+      // Stoppen der Animation, wenn der Text vollständig sichtbar ist
+      messageContainer.style.animation = 'moveTextStop 1s forwards';
+    }
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
+
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
