@@ -1,31 +1,17 @@
 {% if section.settings.message %}
   <style>
-.announcement-bar__message {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-}
+    {% if section.settings.logo != blank %}
+      .site-header__logo-image {
+        max-width: {{ section.settings.logo_max_width | escape }}px;
+      }
+    {% endif %}
 
-.scrolling-text-container {
-    display: flex;
-    position: absolute;
-}
-
-.scrolling-text {
-    animation: scroll linear infinite;
-    animation-duration: 10s; /* Geschwindigkeit der Animation */
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-</style>
+    {% if section.settings.align_logo == 'left' %}
+      .site-header__logo-image {
+        margin: 0;
+      }
+    {% endif %}
+  </style>
 {% endif %}
 
 {% render 'search-drawer' %}
@@ -34,7 +20,9 @@
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
       <style>
-        
+        .announcement-bar {
+          background-color: {{ section.settings.color_bg }};
+        }
 
         .announcement-bar__link:hover {
           {% assign brightness = section.settings.color_bg | color_brightness %}
@@ -52,41 +40,17 @@
           color: {{ section.settings.color_text }};
         }
       </style>
-      <div class="announcement-bar__message" id="announcement-bar">
-    <div class="scrolling-text-container"></div>
-</div>
 
-     <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-    <marquee behavior="scroll" direction="right">
-      <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    </marquee>
-  </div>
+      <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+        {%- unless section.settings.message_link == blank -%}
+          <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
+        {%- endunless -%}
+            <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+        {%- unless section.settings.message_link == blank -%}
+          </a>
+        {%- endunless -%}
+      </div>
 
-<script>
-(function() {
-    var announcementBar = document.getElementById('announcement-bar');
-    var textContainer = announcementBar.querySelector('.scrolling-text-container');
-    var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
-    var insertInterval = 2000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
-    
-    // Funktion zum Einfügen eines neuen Textabschnitts
-    function insertNewText() {
-        var newMessage = document.createElement('span');
-        newMessage.className = 'scrolling-text';
-        newMessage.innerText = originalMessage;
-        textContainer.appendChild(newMessage);
-        
-        setTimeout(function() {
-            textContainer.removeChild(newMessage);
-        }, 10000); // Entfernen des Textabschnitts nach 10 Sekunden
-    }
-
-    // Einfügen des Textabschnitts in regelmäßigen Abständen
-    setInterval(function() {
-        insertNewText();
-    }, insertInterval);
-})();
-</script>
     {% endif %}
   {% endif %}
 
