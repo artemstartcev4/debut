@@ -15,6 +15,9 @@
       background-color: {{ section.settings.color_bg }};
       color: {{ section.settings.color_text }};
       padding: 10px 20px;
+      display: flex;
+      justify-content: center; /* Horizontal zentrieren */
+      align-items: center; /* Vertikal zentrieren */
     }
   </style>
 {% endif %}
@@ -49,8 +52,8 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-    <marquee behavior="scroll" direction="right">
-      {{ section.settings.message_text | escape }}
+    <marquee behavior="scroll" direction="left">
+      <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     </marquee>
   </div>
 
