@@ -61,34 +61,33 @@
   </div>
 <script>
 (function() {
-    var announcementBarContainer = document.querySelector('.announcement-bar');
+    var announcementBar = document.querySelector('.announcement-bar__message');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
-    var scrollDelay = 1000; // Zeitverzögerung zwischen dem Hinzufügen neuer Texte (in Millisekunden)
-    
-    // Funktion zum Hinzufügen des ursprünglichen Textes
-    function addOriginalMessage() {
-        var newMessage = document.createElement('p'); // Erstellt ein neues Paragraph-Element
-        newMessage.textContent = originalMessage; // Setzt den Text des neuen Elements
-        announcementBarContainer.appendChild(newMessage); // Fügt das neue Element zur Ankündigungsleisten-Container hinzu
-    }
+    var scrollSpeed = 1; // Geschwindigkeit der Bewegung (in Pixel)
 
-    // Funktion zum Entfernen des letzten Textes
-    function removeLastMessage() {
-        var messages = document.querySelectorAll('.announcement-bar__message');
-        if (messages.length > 1) {
-            messages[messages.length - 1].remove(); // Entfernen des letzten Textelements
-        }
-    }
-
-    // Funktion zum Starten des Prozesses
+    // Funktion zum Starten der Animation
     function startScrolling() {
-        setInterval(function() {
-            removeLastMessage(); // Entfernen des letzten Textes
-            addOriginalMessage(); // Hinzufügen des ursprünglichen Textes
-        }, scrollDelay);
+        var distance = announcementBar.offsetWidth; // Breite des Textes
+        var position = 0;
+
+        // Funktion zur Animation des Textes
+        function scroll() {
+            position += scrollSpeed;
+            if (position > distance) {
+                position = -announcementBar.offsetWidth; // Setzt die Position zurück, um die Animation zu wiederholen
+            }
+            announcementBar.style.transform = 'translateX(' + position + 'px)';
+            requestAnimationFrame(scroll);
+        }
+
+        // Starten der Animation
+        scroll();
     }
 
-    // Starten des Prozesses
+    // Setzen des ursprünglichen Textes
+    announcementBar.textContent = originalMessage;
+
+    // Starten der Animation
     startScrolling();
 })();
 </script>
