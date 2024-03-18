@@ -9,7 +9,9 @@
   }
 
   .announcement-bar__inner {
-    display: flex; /* Flexbox verwenden */
+    position: relative; /* Relative Positionierung für die Kinder */
+    width: max-content; /* Breite basierend auf dem Inhalt */
+    white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
   }
 
@@ -17,16 +19,16 @@
     color: white; /* Textfarbe auf Weiß setzen */
     font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
-    white-space: nowrap; /* Verhindern, dass der Text umbricht */
     padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
+    display: inline-block; /* Inline-Block, um die Breite des Inhalts zu verwenden */
   }
 
   @keyframes moveText {
     0% {
-      transform: translateX(0); /* Startpunkt der Animation */
+      left: 100%; /* Startpunkt der Animation - Text beginnt ganz rechts */
     }
     100% {
-      transform: translateX(-100%); /* Endpunkt der Animation */
+      left: -100%; /* Endpunkt der Animation - Text verschwindet ganz links */
     }
   }
 </style>
