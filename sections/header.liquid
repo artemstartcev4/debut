@@ -11,17 +11,17 @@
         margin: 0;
       }
       @keyframes slide-in-from-left {
-      0% {
-        transform: translateX(-100%);
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
       }
-      100% {
-        transform: translateX(0);
-      }
-    }
 
-    .announcement-bar__message {
-      animation: slide-in-from-left 1s ease forwards; /* Dauer und Timing-Funktion anpassen */
-    }
+      .announcement-bar__message {
+        animation: slide-in-from-left 10s linear infinite; /* Dauer und Timing-Funktion anpassen */
+      }
     {% endif %}
   </style>
 {% endif %}
