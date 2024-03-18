@@ -1,4 +1,5 @@
-<style>
+{% if section.settings.message %}
+ <style>
   /* Stil für die Ankündigungsleiste */
   .announcement-bar {
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
@@ -54,6 +55,7 @@
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
+{% endif %}
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
