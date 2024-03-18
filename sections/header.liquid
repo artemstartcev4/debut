@@ -1,34 +1,34 @@
 {% if section.settings.message %}
  <style>
   /* Stil für die Ankündigungsleiste */
-  .announcement-bar {
-    background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
-    padding: 5px; /* Ränder verkleinern */
-    height: auto; /* Automatische Höhe basierend auf Inhalt */
-    overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
-  }
+ .announcement-bar {
+  background-color: black;
+  padding: 5px;
+  height: auto;
+  overflow: hidden;
+}
 
-  .announcement-bar__inner {
-    display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
-  }
+.announcement-bar__inner {
+  display: flex;
+  animation: moveText 20s linear infinite 50%;
+}
 
-  .announcement-bar__message {
-    color: white; /* Textfarbe auf Weiß setzen */
-    font-size: 12px; /* Schriftgröße kleiner machen */
-    margin: 0; /* Rand aufheben */
-    white-space: nowrap; /* Verhindern, dass der Text umbricht */
-    padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-  }
+.announcement-bar__message {
+  color: white;
+  font-size: 12px;
+  margin: 0;
+  white-space: nowrap;
+  padding-right: 20px;
+}
 
-  @keyframes moveText {
-    0% {
-      transform: translateX(100%); /* Startpunkt der Animation */
-    }
-    100% {
-      transform: translateX(-100%); /* Endpunkt der Animation */
-    }
+@keyframes moveText {
+  0% {
+    transform: translateX(100%);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
