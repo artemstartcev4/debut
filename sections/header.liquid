@@ -24,19 +24,22 @@
       .announcement-bar__message {
         white-space: nowrap; /* Verhindert Zeilenumbrüche */
         overflow: hidden; /* Verhindert das Überlaufen des Textes */
+        position: absolute; /* Positioniert den Text */
         animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
       }
     {% endif %}
   </style>
 
   <script>
-    // JavaScript, um den Text kontinuierlich wiederzugeben
+    // JavaScript, um die Texte nacheinander anzuzeigen
     document.addEventListener('DOMContentLoaded', function() {
-      var messageElement = document.querySelector('.announcement-bar__message');
-      var textWidth = messageElement.scrollWidth; // Breite des Textes
-      var containerWidth = messageElement.parentElement.offsetWidth; // Breite des Container-Elements (Ankündigungsleiste)
-      var animationDuration = (textWidth + containerWidth) / 100; // Dauer der Animation basierend auf der Breite des Textes und der Container-Elemente
-      messageElement.style.animationDuration = animationDuration + 's'; // Setzt die Dauer der Animation
+      var messages = document.querySelectorAll('.announcement-bar__message');
+      var delay = 0; // Startverzögerung für den ersten Text
+
+      messages.forEach(function(message) {
+        message.style.animationDelay = delay + 's'; // Setzt die Verzögerung für jeden Text
+        delay += 2; // Inkrementiert die Verzögerung für den nächsten Text
+      });
     });
   </script>
 {% endif %}
