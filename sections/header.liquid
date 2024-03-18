@@ -1,49 +1,39 @@
 {% if section.settings.message %}
   <style>
-    .announcement-bar {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      position: relative;
-      z-index: 9999;
-      background-color: {{ section.settings.color_bg }};
-      color: {{ section.settings.color_text }};
-      overflow: hidden; /* Verhindert Überlaufen des Textes */
-      white-space: nowrap; /* Verhindert Zeilenumbrüche */
-    }
-
-    .announcement-bar__message {
-      position: absolute; /* Positioniert den Text innerhalb der Ankündigungsleiste */
-      animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
-    }
-
-    @keyframes slide-in-from-left {
-      0% {
-        transform: translateX(-100%);
+    {% if section.settings.logo != blank %}
+      .site-header__logo-image {
+        max-width: {{ section.settings.logo_max_width | escape }}px;
       }
-      100% {
-        transform: translateX(100%); /* Berücksichtigt die Breite der Ankündigungsleiste */
+    {% endif %}
+
+    {% if section.settings.align_logo == 'left' %}
+      .site-header__logo-image {
+        margin: 0;
       }
-    }
+
+      /* Animation für den Text der Ankündigungsleiste */
+      @keyframes slide-in-from-left {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(calc(100% - 100px)); /* Berücksichtigt die Breite der Ankündigungsleiste */
+        }
+      }
+
+      .announcement-bar__message {
+        white-space: nowrap; /* Verhindert Zeilenumbrüche */
+        overflow: hidden; /* Verhindert das Überlaufen des Textes */
+        animation: slide-in-from-left calc(10s * var(--animation-cycles)) linear infinite; /* Dynamische Dauer basierend auf der Länge des Textes */
+      }
+    {% endif %}
   </style>
-
-  <div class="announcement-bar">
-    <div class="announcement-bar__message-container">
-      {% assign messages = section.settings.message_text | split: "\n" %}
-      {% for message in messages %}
-        <div class="announcement-bar__message">{{ message }}</div>
-      {% endfor %}
-    </div>
-  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var messages = document.querySelectorAll('.announcement-bar__message');
-      var delay = 0;
-
-      messages.forEach(function(message, index) {
-        message.style.animationDelay = (index * 2) + 's';
-      });
+      var messageElement = document.querySelector('.announcement-bar__message');
+      var animationCycles = messageElement.scrollWidth / messageElement.offsetWidth;
+      messageElement.style.setProperty('--animation-cycles', animationCycles);
     });
   </script>
 {% endif %}
@@ -75,14 +65,15 @@
         }
       </style>
 
-      <div class="announcement-bar">
-    <div class="announcement-bar__message-container">
-      {% assign messages = section.settings.message_text | split: "\n" %}
-      {% for message in messages %}
-        <div class="announcement-bar__message">{{ message }}</div>
-      {% endfor %}
-    </div>
-  </div>
+      <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+        {%- unless section.settings.message_link == blank -%}
+          <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
+        {%- endunless -%}
+            <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+        {%- unless section.settings.message_link == blank -%}
+          </a>
+        {%- endunless -%}
+      </div>
 
     {% endif %}
   {% endif %}
