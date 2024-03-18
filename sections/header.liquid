@@ -1,32 +1,32 @@
 {% if section.settings.message %}
   <style>
-    {% if section.settings.logo != blank %}
-      .site-header__logo-image {
-        max-width: {{ section.settings.logo_max_width | escape }}px;
-      }
-    {% endif %}
+  /* Stil für die Ankündigungsleiste */
+  .announcement-bar {
+    background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
+    display: flex; /* Flexbox verwenden */
+    align-items: center; /* Text vertikal zentrieren */
+    padding: 5px; /* Ränder verkleinern */
+    height: auto; /* Automatische Höhe basierend auf Inhalt */
+    overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
+  }
 
-    {% if section.settings.align_logo == 'left' %}
-      .site-header__logo-image {
-        margin: 0;
-      }
-    {% endif %}
+  .announcement-bar__message {
+    color: {{ section.settings.color_text }};
+    font-size: 12px; /* Schriftgröße kleiner machen */
+    margin: 0; /* Rand aufheben */
+    animation: moveRight 5s linear infinite; /* Animationseigenschaften festlegen */
+    white-space: nowrap; /* Verhindern, dass der Text umbricht */
+  }
 
-    /* Stil für die Ankündigungsleiste */
-    .announcement-bar {
-      background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
-      display: flex; /* Flexbox verwenden */
-      align-items: center; /* Text vertikal zentrieren */
-      padding: 5px; /* Ränder verkleinern */
-      height: auto; /* Automatische Höhe basierend auf Inhalt */
+  @keyframes moveRight {
+    0% {
+      transform: translateX(0); /* Startpunkt der Animation */
     }
-
-    .announcement-bar__message {
-      color: {{ section.settings.color_text }};
-      font-size: 12px; /* Schriftgröße kleiner machen */
-      margin: 0; /* Rand aufheben */
+    100% {
+      transform: translateX(100%); /* Endpunkt der Animation */
     }
-  </style>
+  }
+</style>
 
   <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
     {%- unless section.settings.message_link == blank -%}
