@@ -11,25 +11,13 @@
         margin: 0;
       }
     {% endif %}
-     .announcement-bar p {
-  white-space: nowrap; /* Verhindert den Zeilenumbruch */
-  overflow: hidden; /* Versteckt den überschüssigen Text */
-  animation: moveText 10s linear infinite; /* Bewegungsanimation */
-}
 
-/* Bewegungsanimation für den Text */
-@keyframes moveText {
-  0% {
-    transform: translateX(-100%); /* Startposition ganz links */
-  }
-  100% {
-    transform: translateX(100%); /* Endposition ganz rechts */
-  }
-}
     
   </style>
 {% endif %}
-
+[data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section] {
+  margin-bottom: -20px; /* Ändere diese Zahl entsprechend deiner gewünschten Abstandshöhe */
+}
 {% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
@@ -275,8 +263,7 @@
     {% render 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
   </nav>
   {% endif %}
-            [data-header-section] {
-  margin-bottom: 0px; /* Ändere diese Zahl entsprechend deiner gewünschten Abstandshöhe */
+            
 }
 </div>
 
