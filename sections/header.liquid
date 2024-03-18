@@ -1,5 +1,5 @@
 {% if section.settings.message %}
-  <style>
+<style>
     {% if section.settings.logo != blank %}
       .site-header__logo-image {
         max-width: {{ section.settings.logo_max_width | escape }}px;
@@ -15,12 +15,12 @@
           transform: translateX(-100%);
         }
         100% {
-          transform: translateX(0%);
+          transform: translateX(100%);
         }
       }
 
       .announcement-bar__message {
-        animation: slide-in-from-left 10s linear infinite; /* Dauer und Timing-Funktion anpassen */
+        animation: slide-in-from-left 10s linear infinite;
       }
     {% endif %}
   </style>
