@@ -15,11 +15,14 @@
     /* Stil für die Ankündigungsleiste */
     .announcement-bar {
       background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
+      display: flex; /* Flexbox verwenden */
+      align-items: center; /* Text zentrieren */
     }
 
     .announcement-bar__message {
       color: {{ section.settings.color_text }};
       font-size: 14px; /* Schriftgröße kleiner machen */
+      flex: 1; /* Alle Textelemente sollen gleich viel Platz einnehmen */
     }
   </style>
 
@@ -37,7 +40,6 @@
     {%- endunless -%}
   </div>
 {% endif %}
-
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% if section.settings.align_logo == 'center' %}
