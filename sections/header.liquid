@@ -59,7 +59,39 @@
       <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     </marquee>
   </div>
+<script>
+    // Füge den JavaScript-Code hier ein
+    (function() {
+        var announcementBar = document.querySelector('.announcement-bar__message');
+        var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
+        var scrollDelay = 1000; // Zeitverzögerung zwischen dem Hinzufügen neuer Texte (in Millisekunden)
+        
+        // Funktion zum Hinzufügen des ursprünglichen Textes
+        function addOriginalMessage() {
+            var clone = announcementBar.cloneNode(true); // Klonen des ursprünglichen Textes
+            announcementBar.parentNode.appendChild(clone); // Hinzufügen des Klons zum Elternelement
+        }
 
+        // Funktion zum Entfernen des letzten Textes
+        function removeLastMessage() {
+            var messages = document.querySelectorAll('.announcement-bar__message');
+            if (messages.length > 1) {
+                messages[messages.length - 1].remove(); // Entfernen des letzten Textelements
+            }
+        }
+
+        // Funktion zum Starten des Prozesses
+        function startScrolling() {
+            setInterval(function() {
+                removeLastMessage(); // Entfernen des letzten Textes
+                addOriginalMessage(); // Hinzufügen des ursprünglichen Textes
+            }, scrollDelay);
+        }
+
+        // Starten des Prozesses
+        startScrolling();
+    })();
+  </script>
 
     {% endif %}
   {% endif %}
