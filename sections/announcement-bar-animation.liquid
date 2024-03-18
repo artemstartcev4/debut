@@ -1,24 +1,32 @@
-{% if section.settings.message %}
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var announcementBar = document.querySelector(".announcement-bar");
-      var messageText = "{{ section.settings.message_text | escape }}";
-      var numberOfMessages = 3; // Anzahl der gleichzeitig angezeigten Schriftzüge
-      var animationDuration = 5000; // Dauer der Animation in Millisekunden
-      var animationDelay = animationDuration / numberOfMessages; // Verzögerung zwischen den Animationen
+document.addEventListener("DOMContentLoaded", function() {
+  // Text für die Announcement-Bar
+  var announcementText = "Dein Text hier";
 
-      for (var i = 0; i < numberOfMessages; i++) {
-        var message = document.createElement("p");
-        message.textContent = messageText;
-        announcementBar.appendChild(message);
+  // Zeit in Millisekunden, nach der der nächste Text erscheinen soll
+  var delayBetweenTexts = 5000;
 
-        // Animation für jeden Schriftzug
-        setTimeout(function(msg) {
-          return function() {
-            msg.style.transform = "translateX(100%)";
-          };
-        }(message), i * animationDelay);
-      }
-    });
-  </script>
-{% endif %}
+  // Array mit den Texten für die Announcement-Bar
+  var announcementTexts = [
+    "Text 1",
+    "Text 2",
+    "Text 3"
+    // Füge hier weitere Texte hinzu, falls benötigt
+  ];
+
+  var announcementBar = document.querySelector(".announcement-bar");
+  var message = announcementBar.querySelector("p");
+  var currentIndex = 0;
+
+  // Funktion zum Anzeigen des nächsten Texts
+  function showNextText() {
+    message.textContent = announcementTexts[currentIndex];
+    currentIndex = (currentIndex + 1) % announcementTexts.length;
+    setTimeout(showNextText, delayBetweenTexts);
+  }
+
+  // Initialisiere die Anzeige des Texts
+  showNextText();
+
+  // CSS-Klasse für die Animation
+  announcementBar.classList.add("animate-text");
+});
