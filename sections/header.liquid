@@ -55,7 +55,11 @@
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
     <marquee behavior="scroll" direction="right">
-      <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+      {{ section.settings.message_text | escape }} <!-- Erster Schriftzug -->
+      &nbsp;&nbsp;&nbsp;&nbsp; <!-- Abstand zwischen den Schriftzügen -->
+      {{ section.settings.message_text | escape }} <!-- Zweiter Schriftzug -->
+      &nbsp;&nbsp;&nbsp;&nbsp; <!-- Abstand zwischen den Schriftzügen -->
+      {{ section.settings.message_text | escape }} <!-- Dritter Schriftzug -->
     </marquee>
   </div>
 
