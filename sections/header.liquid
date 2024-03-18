@@ -25,6 +25,8 @@
           overflow: hidden; /* Verhindert horizontales Scrollen */
           white-space: nowrap; /* Verhindert Zeilenumbruch */
           animation: marquee 15s linear infinite; /* Animationsdefinition */
+          position: relative;
+          
         }
 
         .announcement-bar__link:hover {
@@ -38,6 +40,15 @@
             background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
           {% endif %}
         }
+        .announcement-bar__message-container {
+          display: inline-block;
+          position: absolute; /* Position relativ zum übergeordneten Container */
+          top: 0; /* Oben ausrichten */
+          animation: marquee 15s linear infinite; /* Animationsdefinition */
+        }
+        .announcement-bar:hover .announcement-bar__message-container {
+      animation-play-state: paused; /* Animation anhalten, wenn der Mauszeiger über der Leiste ist */
+    }
 
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
