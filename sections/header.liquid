@@ -21,10 +21,14 @@
         }
       }
 
-      .announcement-bar__message {
+      .announcement-bar__message-container {
+        position: relative; /* Setzt das Container-Element auf relative Positionierung */
         white-space: nowrap; /* Verhindert Zeilenumbrüche */
         overflow: hidden; /* Verhindert das Überlaufen des Textes */
-        position: absolute; /* Positioniert den Text */
+      }
+
+      .announcement-bar__message {
+        animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
       }
     {% endif %}
   </style>
@@ -37,15 +41,13 @@
       var xPos = 0; // Startposition für den ersten Text
 
       messages.forEach(function(message) {
-        message.style.animation = 'slide-in-from-left 10s linear infinite'; // Animation für jeden Text setzen
         message.style.animationDelay = delay + 's'; // Setzt die Verzögerung für jeden Text
-        message.style.left = xPos + 'px'; // Setzt die Position für jeden Text
         delay += 2; // Inkrementiert die Verzögerung für den nächsten Text
-        xPos += message.offsetWidth; // Inkrementiert die Position für den nächsten Text
       });
     });
   </script>
 {% endif %}
+
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
