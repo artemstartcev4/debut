@@ -10,9 +10,8 @@
 
   .announcement-bar__inner {
     position: relative; /* Relative Positionierung für die Kinder */
-    width: 100%; /* Breite auf 100% setzen */
+    width: max-content; /* Breite basierend auf dem Inhalt */
     white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
-    display: flex; /* Flexbox verwenden */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
   }
 
@@ -21,36 +20,28 @@
     font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
     padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-    animation: fadeIn linear 2s forwards; /* Text-Einblendanimation */
-    animation-delay: calc(var(--delay) * 1s); /* Verzögerung basierend auf dem Index */
-    /* Änderung der Startposition der Animation */
-    transform: translateX(100%); /* Text beginnt von der rechten Seite */
+    display: inline-block; /* Inline-Block, um die Breite des Inhalts zu verwenden */
   }
 
   @keyframes moveText {
     0% {
-      transform: translateX(100%); /* Startpunkt der Animation - Text beginnt ganz rechts */
+      left: 100%; /* Startpunkt der Animation - Text beginnt ganz rechts */
     }
     100% {
-      transform: translateX(-100%); /* Endpunkt der Animation - Text verschwindet ganz links */
-    }
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0; /* Startpunkt der Einblendung - Text ist unsichtbar */
-    }
-    100% {
-      opacity: 1; /* Endpunkt der Einblendung - Text ist vollständig sichtbar */
+      left: -100%; /* Endpunkt der Animation - Text verschwindet ganz links */
     }
   }
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
   <div class="announcement-bar__inner">
-    {% for message in section.settings.messages %}
-      <p class="announcement-bar__message" style="--delay: {{ forloop.index }};">{{ message | escape }}</p>
-    {% endfor %}
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    
+    <!-- Platz für weitere Nachrichten -->
   </div>
 </div>
 
@@ -70,7 +61,6 @@
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
-
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
