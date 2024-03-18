@@ -1,5 +1,5 @@
 {% if section.settings.message %}
- <style>
+<style>
   /* Stil für die Ankündigungsleiste */
   .announcement-bar {
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
@@ -10,7 +10,7 @@
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    animation: moveText 20s linear infinite paused; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
@@ -50,7 +50,15 @@
     var newMessage = document.createElement('p');
     newMessage.classList.add('announcement-bar__message');
     newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
+    
+    // Animation pausieren, bevor neuer Text hinzugefügt wird
+    messageContainer.style.animationPlayState = "paused";
     messageContainer.appendChild(newMessage);
+    
+    // Animation fortsetzen, nachdem der neue Text hinzugefügt wurde
+    setTimeout(function(){
+      messageContainer.style.animationPlayState = "running";
+    }, 100);
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
