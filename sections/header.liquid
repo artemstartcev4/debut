@@ -1,10 +1,5 @@
 {% if section.settings.message %}
   <style>
-    .announcement-bar {
-      background-color: {{ section.settings.color_bg }};
-      color: {{ section.settings.color_text }};
-      padding: 10px 20px;
-    }
     {% if section.settings.logo != blank %}
       .site-header__logo-image {
         max-width: {{ section.settings.logo_max_width | escape }}px;
@@ -27,6 +22,8 @@
       <style>
         .announcement-bar {
           background-color: {{ section.settings.color_bg }};
+      color: {{ section.settings.color_text }};
+      padding: 10px 20px;
         }
 
         .announcement-bar__link:hover {
