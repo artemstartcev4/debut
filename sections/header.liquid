@@ -1,60 +1,55 @@
 {% if section.settings.message %}
+  <div class="announcement-bar">
+    <div class="announcement-bar__message-container">
+      <div class="announcement-bar__message">Ihr Text hier</div>
+    </div>
+  </div>
+
   <style>
-    {% if section.settings.logo != blank %}
-      .site-header__logo-image {
-        max-width: {{ section.settings.logo_max_width | escape }}px;
-      }
-    {% endif %}
-
-    {% if section.settings.align_logo == 'left' %}
-      .site-header__logo-image {
-        margin: 0;
-      }
-
-      .announcement-bar {
-    overflow: hidden;
-    position: relative;
-    width: 100%; /* Vollständige Breite der Ankündigungsleiste */
-    height: 40px; /* Beispielhöhe der Ankündigungsleiste */
-  }
-
-  .announcement-bar__message-container {
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation-duration: calc(10s * var(--animation-cycles)); /* Dynamische Dauer basierend auf der Länge des Textes */
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  .announcement-bar__message {
-    display: inline-block;
-    animation-name: slide-in-from-left;
-  }
-
-  @keyframes slide-in-from-left {
-    0% {
-      transform: translateX(-100%);
+    .announcement-bar {
+      overflow: hidden;
+      position: relative;
+      width: 100%; /* Vollständige Breite der Ankündigungsleiste */
+      height: 40px; /* Beispielhöhe der Ankündigungsleiste */
     }
-    100% {
-      transform: translateX(100%); /* Bewegt den Text bis zum anderen Ende der Ankündigungsleiste */
+
+    .announcement-bar__message-container {
+      white-space: nowrap;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation-duration: calc(10s * var(--animation-cycles)); /* Dynamische Dauer basierend auf der Länge des Textes */
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
     }
-  }
-    {% endif %}
+
+    .announcement-bar__message {
+      display: inline-block;
+      animation-name: slide-in-from-left;
+    }
+
+    @keyframes slide-in-from-left {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%); /* Bewegt den Text bis zum anderen Ende der Ankündigungsleiste */
+      }
+    }
   </style>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var messageElement = document.querySelector('.announcement-bar__message');
-    var messageContainer = document.querySelector('.announcement-bar__message-container');
-    var containerWidth = messageContainer.offsetWidth;
-    var messageWidth = messageElement.offsetWidth;
-    var animationCycles = (containerWidth + messageWidth) / containerWidth; // Berechnet die Anzahl der Zyklen basierend auf der Textbreite und der Containerbreite
-    messageContainer.style.setProperty('--animation-cycles', animationCycles);
-  });
-</script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var messageElement = document.querySelector('.announcement-bar__message');
+      var messageContainer = document.querySelector('.announcement-bar__message-container');
+      var containerWidth = messageContainer.offsetWidth;
+      var messageWidth = messageElement.offsetWidth;
+      var animationCycles = (containerWidth + messageWidth) / containerWidth; // Berechnet die Anzahl der Zyklen basierend auf der Textbreite und der Containerbreite
+      messageContainer.style.setProperty('--animation-cycles', animationCycles);
+    });
+  </script>
+
   <div class="announcement-bar">
   <div class="announcement-bar__message-container">
     <div class="announcement-bar__message">Ihr Text hier</div>
