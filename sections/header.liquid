@@ -10,9 +10,9 @@
 
   .announcement-bar__inner {
     position: relative; /* Relative Positionierung für die Kinder */
-    width: max-content; /* Breite basierend auf dem Inhalt */
+    width: 100vw; /* Breite auf 100% der Viewport-Breite setzen */
     white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    animation: moveText linear infinite; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
@@ -25,10 +25,10 @@
 
   @keyframes moveText {
     0% {
-      left: 0; /* Startpunkt der Animation - Text beginnt ganz links */
+      transform: translateX(100%); /* Startpunkt der Animation - Text beginnt ganz rechts */
     }
     100% {
-      left: -100%; /* Endpunkt der Animation - Text verschwindet ganz links */
+      transform: translateX(-100%); /* Endpunkt der Animation - Text verschwindet ganz links */
     }
   }
 </style>
@@ -61,6 +61,7 @@
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
+
 
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
