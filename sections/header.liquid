@@ -10,7 +10,31 @@
       .site-header__logo-image {
         margin: 0;
       }
-      
+     {% if section.settings.logo != blank %}
+      .site-header__logo-image {
+        max-width: {{ section.settings.logo_max_width | escape }}px;
+      }
+    {% endif %}
+
+    {% if section.settings.align_logo == 'left' %}
+      .site-header__logo-image {
+        margin: 0;
+      }
+    {% endif %}
+
+    /* Animation für den Text der Ankündigungsleiste */
+    .announcement-bar__message {
+      animation: moveLeftRight 10s infinite alternate; /* Ändern Sie die Zeit und andere Eigenschaften nach Bedarf */
+    }
+
+    @keyframes moveLeftRight {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    } 
     {% endif %}
   </style>
 {% endif %}
