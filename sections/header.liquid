@@ -10,19 +10,21 @@
       .site-header__logo-image {
         margin: 0;
       }
-      @keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
+    /* Füge diese CSS-Regel hinzu, um die Animation zu definieren */
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
 
-/* Wende die Animation auf die Ankündigungsleiste an */
-.announcement-bar {
-  background-color: {{ section.settings.color_bg }};
-  animation: slideIn 0.5s forwards; /* Hier wird die Animation auf die Ankündigungsleiste angewendet */
+    /* Wende die Animation auf den Text in der Ankündigungsleiste an */
+    .announcement-bar__message {
+      color: {{ section.settings.color_text }};
+      animation: slideIn 0.5s forwards; /* Hier wird die Animation auf den Text angewendet */
+    }
 }
     {% endif %}
   </style>
@@ -56,14 +58,14 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-        {%- unless section.settings.message_link == blank -%}
-          <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
-        {%- endunless -%}
-            <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-        {%- unless section.settings.message_link == blank -%}
-          </a>
-        {%- endunless -%}
-      </div>
+    {%- unless section.settings.message_link == blank -%}
+      <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
+    {%- endunless -%}
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    {%- unless section.settings.message_link == blank -%}
+      </a>
+    {%- endunless -%}
+  </div>
 
     {% endif %}
   {% endif %}
