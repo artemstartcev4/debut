@@ -18,12 +18,13 @@
       display: flex; /* Flexbox verwenden */
       align-items: center; /* Text vertikal zentrieren */
       padding: 5px; /* Ränder verkleinern */
+      height: auto; /* Automatische Höhe basierend auf Inhalt */
     }
 
     .announcement-bar__message {
       color: {{ section.settings.color_text }};
       font-size: 12px; /* Schriftgröße kleiner machen */
-      flex: 1; /* Alle Textelemente sollen gleich viel Platz einnehmen */
+      margin: 0; /* Rand aufheben */
     }
   </style>
 
