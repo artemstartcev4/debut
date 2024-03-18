@@ -24,20 +24,17 @@
     {% endif %}
 
     /* Animation für den Text der Ankündigungsleiste */
-    @keyframes slide-in-out {
+    @keyframes slide-in-from-left {
       0% {
         transform: translateX(-100%);
       }
-      50% {
-        transform: translateX(100%);
-      }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(0%);
       }
     }
 
     .announcement-bar__message {
-      animation: slide-in-out 2s linear infinite; /* Dauer und Timing-Funktion anpassen */
+      animation: slide-in-from-left 1s linear infinite; /* Dauer und Timing-Funktion anpassen */
     }
   </style>
     {% endif %}
