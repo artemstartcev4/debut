@@ -64,8 +64,7 @@
     var announcementBar = document.querySelector('.announcement-bar__message');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
     var scrollSpeed = 1; // Geschwindigkeit der Bewegung (in Pixel)
-    var repeatInterval = 2000; // Intervall für die Wiederholung (in Millisekunden)
-    var timeoutID; // Variable zur Speicherung der ID des Timeout
+    var insertInterval = 1500; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
 
     // Funktion zum Starten der Animation
     function startScrolling() {
@@ -86,22 +85,19 @@
         scroll();
     }
 
-    // Funktion zum Aktualisieren des Textes
-    function updateText() {
-        announcementBar.textContent = originalMessage;
+    // Funktion zum Einfügen eines neuen Textes
+    function insertNewText() {
         setTimeout(function() {
-            announcementBar.insertAdjacentHTML('beforeend', originalMessage);
-            timeoutID = setTimeout(updateText, repeatInterval); // Wiederholen nach dem Intervall
-        }, 2000); // Verzögerung vor der ersten Wiederholung
+            announcementBar.insertAdjacentHTML('beforeend', '<span class="spacer"> </span>' + originalMessage);
+        }, insertInterval);
     }
 
     // Setzen des ursprünglichen Textes und Starten der Animation
-    announcementBar.textContent = originalMessage;
+    announcementBar.innerHTML = '<span class="spacer"> </span>' + originalMessage;
     startScrolling();
-    timeoutID = setTimeout(updateText, repeatInterval); // Starten der Wiederholung
+    insertNewText(); // Erstes Einfügen des Textes
 })();
 </script>
-
     {% endif %}
   {% endif %}
 
