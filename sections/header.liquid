@@ -9,17 +9,19 @@
   }
 
   .announcement-bar__inner {
-    display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
-  }
+  display: flex; /* Flexbox verwenden */
+  animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+  width: 100%; /* Containerbreite auf 100% setzen */
+  overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
+}
 
-  .announcement-bar__message {
-    color: white; /* Textfarbe auf Weiß setzen */
-    font-size: 12px; /* Schriftgröße kleiner machen */
-    margin: 0; /* Rand aufheben */
-    white-space: nowrap; /* Verhindern, dass der Text umbricht */
-    padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-  }
+.announcement-bar__message {
+  color: white; /* Textfarbe auf Weiß setzen */
+  font-size: 12px; /* Schriftgröße kleiner machen */
+  margin: 0; /* Rand aufheben */
+  white-space: nowrap; /* Verhindern, dass der Text umbricht */
+  padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
+}
 
   @keyframes moveText {
     0% {
