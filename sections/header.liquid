@@ -301,19 +301,7 @@
   "url": {{ shop.url | append: page.url | json }}
 }
 </script>
-document.addEventListener("DOMContentLoaded", function() {
-      var announcementBar = document.querySelector(".announcement-bar");
-      var messageText = "{{ section.settings.message_text | escape }}";
-      var numberOfMessages = 3; // Anzahl der gleichzeitig angezeigten Schriftzüge
-      var animationDuration = 5000; // Dauer der Animation in Millisekunden
-      var animationDelay = animationDuration / numberOfMessages; // Verzögerung zwischen den Animationen
 
-      for (var i = 0; i < numberOfMessages; i++) {
-        var message = announcementBar.querySelector("p");
-        message.style.animation = "moveText " + animationDuration + "ms linear infinite";
-        message.style.animationDelay = (i * animationDelay) + "ms";
-      }
-    });
 {% if request.page_type == 'index' %}
   {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">
@@ -328,6 +316,19 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       "url": {{ shop.url | append: page.url | json }}
     }
+    document.addEventListener("DOMContentLoaded", function() {
+      var announcementBar = document.querySelector(".announcement-bar");
+      var messageText = "{{ section.settings.message_text | escape }}";
+      var numberOfMessages = 3; 
+      var animationDuration = 5000; 
+      var animationDelay = animationDuration / numberOfMessages; 
+
+      for (var i = 0; i < numberOfMessages; i++) {
+        var message = announcementBar.querySelector("p");
+        message.style.animation = "moveText " + animationDuration + "ms linear infinite";
+        message.style.animationDelay = (i * animationDelay) + "ms";
+      }
+    });
   </script>
 {% endif %}
 
