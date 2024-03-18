@@ -11,44 +11,7 @@
         margin: 0;
       }
     {% endif %}
-     .announcement-bar p {
-  white-space: nowrap; /* Verhindert den Zeilenumbruch */
-  overflow: hidden; /* Versteckt den überschüssigen Text */
-  animation: moveText 10s linear infinite; /* Bewegungsanimation */
-}
-
-/* Bewegungsanimation für den Text */
-@keyframes moveText {
-  0% {
-    transform: translateX(-100%); /* Startposition ganz links */
-  }
-  100% {
-    transform: translateX(100%); /* Endposition ganz rechts */
-  }
-}
-      <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var announcementBar = document.querySelector(".announcement-bar");
-      var messageText = "{{ section.settings.message_text | escape }}";
-      var numberOfMessages = 3; // Anzahl der gleichzeitig angezeigten Schriftzüge
-      var animationDuration = 5000; // Dauer der Animation in Millisekunden
-      var animationDelay = animationDuration / numberOfMessages; // Verzögerung zwischen den Animationen
-
-      for (var i = 0; i < numberOfMessages; i++) {
-        var message = document.createElement("p");
-        message.textContent = messageText;
-        announcementBar.appendChild(message);
-
-        // Animation für jeden Schriftzug
-        setTimeout(function(msg) {
-          return function() {
-            msg.style.transform = "translateX(100%)";
-          };
-        }(message), i * animationDelay);
-      }
-    });
-  </script>
-  </style>
+ 
 {% endif %}
 
 {% render 'search-drawer' %}
@@ -80,6 +43,23 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+            .announcement-bar p {
+  white-space: nowrap; /* Verhindert den Zeilenumbruch */
+  overflow: hidden; /* Versteckt den überschüssigen Text */
+  animation: moveText 10s linear infinite; /* Bewegungsanimation */
+}
+
+/* Bewegungsanimation für den Text */
+@keyframes moveText {
+  0% {
+    transform: translateX(-100%); /* Startposition ganz links */
+  }
+  100% {
+    transform: translateX(100%); /* Endposition ganz rechts */
+  }
+}
+    
+  </style>
         {%- unless section.settings.message_link == blank -%}
           <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
         {%- endunless -%}
