@@ -5,39 +5,24 @@
     padding: 5px; /* Ränder verkleinern */
     height: auto; /* Automatische Höhe basierend auf Inhalt */
     overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
+    white-space: nowrap; /* Verhindern, dass der Text umbricht */
   }
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    color: white; /* Textfarbe auf Weiß setzen */
+    font-size: 12px; /* Schriftgröße kleiner machen */
+    animation: none; /* Animation entfernen */
   }
 
   .announcement-bar__message {
-    color: white; /* Textfarbe auf Weiß setzen */
-    font-size: 12px; /* Schriftgröße kleiner machen */
-    margin: 0; /* Rand aufheben */
-    white-space: nowrap; /* Verhindern, dass der Text umbricht */
-    padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-  }
-
-  @keyframes moveText {
-    0% {
-      transform: translateX(100%); /* Startpunkt der Animation */
-    }
-    100% {
-      transform: translateX(-100%); /* Endpunkt der Animation */
-    }
+    margin: 0 20px; /* Abstand zwischen den Texten hinzufügen */
   }
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
   <div class="announcement-bar__inner">
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <!-- Platz für weitere Nachrichten -->
   </div>
 </div>
 
