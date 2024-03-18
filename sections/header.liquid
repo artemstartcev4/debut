@@ -57,7 +57,7 @@
 (function() {
     var announcementBar = document.querySelector('.announcement-bar__message');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
-    var insertInterval = 3000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
+    var insertInterval = 2000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
     var animationDuration = 10; // Dauer der Animation (in Sekunden)
 
     // Funktion zum Einfügen eines neuen Textabschnitts
@@ -71,9 +71,28 @@
         }, animationDuration * 1000); // Entfernen des Textabschnitts nach der Animation
     }
 
-    // Einfügen des Textabschnitts in regelmäßigen Abständen
+    // Funktion zum Starten einer neuen Animation
+    function startNewAnimation() {
+        var newAnimation = document.createElement('style');
+        newAnimation.innerText = `@keyframes scroll-${Date.now()} {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        .scrolling-text-${Date.now()} {
+            display: inline-block;
+            padding-right: 20px;
+            animation: scroll-${Date.now()} linear infinite;
+        }`;
+        document.head.appendChild(newAnimation);
+        setTimeout(function() {
+            document.head.removeChild(newAnimation);
+        }, animationDuration * 1000); // Entfernen der Animation nach der Dauer
+    }
+
+    // Einfügen des Textabschnitts und Starten der Animation in regelmäßigen Abständen
     setInterval(function() {
         insertNewText();
+        startNewAnimation();
     }, insertInterval);
 })();
 </script>
@@ -82,21 +101,6 @@
 .announcement-bar__message {
     overflow: hidden; /* Versteckt den überlaufenden Text */
     white-space: nowrap; /* Verhindert das Umbrechen des Textes */
-}
-
-.scrolling-text {
-    display: inline-block; /* Erlaubt die Verwendung von padding */
-    padding-left: 100%; /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
-    animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(0); /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
-    }
-    to {
-        transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs rechts */
-    }
 }
 </style>
     {% endif %}
