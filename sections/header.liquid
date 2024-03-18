@@ -9,34 +9,37 @@
   }
 
   .announcement-bar__inner {
-    position: relative; /* Relative Positionierung für die Kinder */
-    white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    display: flex; /* Flexbox verwenden */
+    animation: moveText 20s linear infinite paused; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
     color: white; /* Textfarbe auf Weiß setzen */
     font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
+    white-space: nowrap; /* Verhindern, dass der Text umbricht */
     padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-    display: inline-block; /* Inline-Block, um die Breite des Inhalts zu verwenden */
   }
 
   @keyframes moveText {
     0% {
-      transform: translateX(100%); /* Startpunkt der Animation - Text beginnt ganz rechts */
+      transform: translateX(100%); /* Startpunkt der Animation */
     }
     100% {
-      transform: translateX(-100%); /* Endpunkt der Animation - Text verschwindet ganz links */
+      transform: translateX(-100%); /* Endpunkt der Animation */
     }
   }
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
   <div class="announcement-bar__inner">
-    {% for i in (1..5) %}
-      <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    {% endfor %}
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+    
+    <!-- Platz für weitere Nachrichten -->
   </div>
 </div>
 
@@ -48,14 +51,28 @@
     newMessage.classList.add('announcement-bar__message');
     newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
     
-    // Neue Nachricht hinzufügen
+    // Animation pausieren, bevor neuer Text hinzugefügt wird
+    messageContainer.style.animationPlayState = "paused";
     messageContainer.appendChild(newMessage);
+    
+    // Animation fortsetzen, nachdem der neue Text hinzugefügt wurde
+    setTimeout(function(){
+      messageContainer.style.animationPlayState = "running";
+    }, 100);
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
+
+  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
+    <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
+      {% if section.settings.align_logo == 'center' %}
+        {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
+      {% else %}
+        {%- assign logo_classes = 'medium-up--one-quarter logo-align--left' -%}
+      {% endif %}
 
       <div class="grid__item {{ logo_classes }}">
         {% comment %}
