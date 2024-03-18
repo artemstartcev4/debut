@@ -10,33 +10,18 @@
       .site-header__logo-image {
         margin: 0;
       }
-      <style>
-    {% if section.settings.logo != blank %}
-      .site-header__logo-image {
-        max-width: {{ section.settings.logo_max_width | escape }}px;
-      }
-    {% endif %}
-
-    {% if section.settings.align_logo == 'left' %}
-      .site-header__logo-image {
-        margin: 0;
-      }
-    {% endif %}
-
-    /* Animation für den Text der Ankündigungsleiste */
-    @keyframes slide-in-from-left {
+      @keyframes slide-in-from-left {
       0% {
         transform: translateX(-100%);
       }
       100% {
-        transform: translateX(0%);
+        transform: translateX(0);
       }
     }
 
     .announcement-bar__message {
-      animation: slide-in-from-left 1s linear infinite; /* Dauer und Timing-Funktion anpassen */
+      animation: slide-in-from-left 1s ease forwards; /* Dauer und Timing-Funktion anpassen */
     }
-  </style>
     {% endif %}
   </style>
 {% endif %}
