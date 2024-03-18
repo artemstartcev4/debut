@@ -10,7 +10,7 @@
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    animation: moveText 20s linear infinite paused; /* Animationseigenschaften festlegen */
+    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
@@ -23,7 +23,7 @@
 
   @keyframes moveText {
     0% {
-      transform: translateX(100%); /* Startpunkt der Animation */
+      transform: translateX(0); /* Startpunkt der Animation */
     }
     100% {
       transform: translateX(-100%); /* Endpunkt der Animation */
@@ -51,14 +51,8 @@
     newMessage.classList.add('announcement-bar__message');
     newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
     
-    // Animation pausieren, bevor neuer Text hinzugefügt wird
-    messageContainer.style.animationPlayState = "paused";
+    // Neue Nachricht hinzufügen
     messageContainer.appendChild(newMessage);
-    
-    // Animation fortsetzen, nachdem der neue Text hinzugefügt wurde
-    setTimeout(function(){
-      messageContainer.style.animationPlayState = "running";
-    }, 100);
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
