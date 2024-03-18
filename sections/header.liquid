@@ -49,17 +49,11 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-         <marquee behavior="scroll" direction="left">
+    <marquee behavior="scroll" direction="left">
       {{ section.settings.message_text | escape }}
     </marquee>
-        {%- unless section.settings.message_link == blank -%}
-          <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
-        {%- endunless -%}
-            <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-        {%- unless section.settings.message_link == blank -%}
-          </a>
-        {%- endunless -%}
-      </div>
+  </div>
+
 
     {% endif %}
   {% endif %}
