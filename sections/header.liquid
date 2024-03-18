@@ -1,34 +1,18 @@
 {% if section.settings.message %}
   <style>
-    {% if section.settings.logo != blank %}
-      .site-header__logo-image {
-        max-width: {{ section.settings.logo_max_width | escape }}px;
-      }
-    {% endif %}
-
-    {% if section.settings.align_logo == 'left' %}
-      .site-header__logo-image {
-        margin: 0;
-      }
-    {% endif %}
-    .announcement-bar {
-      background-color: {{ section.settings.color_bg }};
-      color: {{ section.settings.color_text }};
-      padding: 0px 20px; /* Oben und unten weniger Padding */
-      height: auto; /* Automatische Höhe */
-      display: flex;
-      justify-content: center; /* Horizontal zentrieren */
-      align-items: center; /* Vertikal zentrieren */
-    }
-    .announcement-bar__message {
+.announcement-bar__message {
     overflow: hidden;
     white-space: nowrap;
-    display: inline-block;
     position: relative;
+    width: 100%;
+}
+
+.scrolling-text-container {
+    display: flex;
+    position: absolute;
 }
 
 .scrolling-text {
-    position: absolute;
     animation: scroll linear infinite;
     animation-duration: 10s; /* Geschwindigkeit der Animation */
 }
@@ -40,6 +24,8 @@
     to {
         transform: translateX(-100%);
     }
+}
+</style>
 {% endif %}
 
 {% render 'search-drawer' %}
@@ -66,6 +52,9 @@
           color: {{ section.settings.color_text }};
         }
       </style>
+      <div class="announcement-bar__message" id="announcement-bar">
+    <div class="scrolling-text-container"></div>
+</div>
 
      <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
     <marquee behavior="scroll" direction="right">
@@ -76,6 +65,7 @@
 <script>
 (function() {
     var announcementBar = document.getElementById('announcement-bar');
+    var textContainer = announcementBar.querySelector('.scrolling-text-container');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
     var insertInterval = 2000; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
     
@@ -84,10 +74,10 @@
         var newMessage = document.createElement('span');
         newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
-        announcementBar.appendChild(newMessage);
+        textContainer.appendChild(newMessage);
         
         setTimeout(function() {
-            announcementBar.removeChild(newMessage);
+            textContainer.removeChild(newMessage);
         }, 10000); // Entfernen des Textabschnitts nach 10 Sekunden
     }
 
