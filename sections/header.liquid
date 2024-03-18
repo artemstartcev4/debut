@@ -11,14 +11,12 @@
         margin: 0;
       }
     {% endif %}
-    
   </style>
 {% endif %}
 
 {% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
-  
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
       <style>
@@ -36,6 +34,7 @@
             {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
             background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
           {% endif %}
+        }
 
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
@@ -43,7 +42,6 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-        
         {%- unless section.settings.message_link == blank -%}
           <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
         {%- endunless -%}
@@ -259,8 +257,6 @@
     {% render 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
   </nav>
   {% endif %}
-            
-}
 </div>
 
 
@@ -386,7 +382,6 @@
       "label": "t:sections.header.settings.color_text.label",
       "default": "#ffffff"
     }
-    
   ]
 }
 {% endschema %}
