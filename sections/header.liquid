@@ -11,31 +11,55 @@
         margin: 0;
       }
 
-      /* Animation für den Text der Ankündigungsleiste */
-      @keyframes slide-in-from-left {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(calc(100% - 100px)); /* Berücksichtigt die Breite der Ankündigungsleiste */
-        }
-      }
+      .announcement-bar {
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Vollständige Breite der Ankündigungsleiste */
+    height: 40px; /* Beispielhöhe der Ankündigungsleiste */
+  }
 
-      .announcement-bar__message {
-        white-space: nowrap; /* Verhindert Zeilenumbrüche */
-        overflow: hidden; /* Verhindert das Überlaufen des Textes */
-        animation: slide-in-from-left calc(10s * var(--animation-cycles)) linear infinite; /* Dynamische Dauer basierend auf der Länge des Textes */
-      }
+  .announcement-bar__message-container {
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-duration: calc(10s * var(--animation-cycles)); /* Dynamische Dauer basierend auf der Länge des Textes */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .announcement-bar__message {
+    display: inline-block;
+    animation-name: slide-in-from-left;
+  }
+
+  @keyframes slide-in-from-left {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%); /* Bewegt den Text bis zum anderen Ende der Ankündigungsleiste */
+    }
+  }
     {% endif %}
   </style>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var messageElement = document.querySelector('.announcement-bar__message');
-      var animationCycles = messageElement.scrollWidth / messageElement.offsetWidth;
-      messageElement.style.setProperty('--animation-cycles', animationCycles);
-    });
-  </script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var messageElement = document.querySelector('.announcement-bar__message');
+    var messageContainer = document.querySelector('.announcement-bar__message-container');
+    var containerWidth = messageContainer.offsetWidth;
+    var messageWidth = messageElement.offsetWidth;
+    var animationCycles = (containerWidth + messageWidth) / containerWidth; // Berechnet die Anzahl der Zyklen basierend auf der Textbreite und der Containerbreite
+    messageContainer.style.setProperty('--animation-cycles', animationCycles);
+  });
+</script>
+  <div class="announcement-bar">
+  <div class="announcement-bar__message-container">
+    <div class="announcement-bar__message">Ihr Text hier</div>
+  </div>
+</div>
 {% endif %}
 
 {% render 'search-drawer' %}
