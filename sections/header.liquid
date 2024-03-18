@@ -10,7 +10,6 @@
 
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
-    width: max-content; /* Containerbreite an den Inhalt anpassen */
     animation: moveText linear infinite; /* Animationseigenschaften festlegen */
   }
 
@@ -24,20 +23,10 @@
 
   @keyframes moveText {
     0% {
-      transform: translateX(0); /* Startpunkt der Animation */
+      transform: translateX(100%); /* Startpunkt der Animation (aus dem Bildschirm) */
     }
     100% {
       transform: translateX(-100%); /* Endpunkt der Animation */
-    }
-  }
-
-  /* Stoppen der Animation, wenn der Text vollständig sichtbar ist */
-  @keyframes moveTextStop {
-    from {
-      transform: translateX(0); /* Aktuelle Position des Textes */
-    }
-    to {
-      transform: translateX(0); /* Position des Textes bleibt gleich */
     }
   }
 </style>
@@ -59,12 +48,6 @@
     
     // Neue Nachricht hinzufügen
     messageContainer.appendChild(newMessage);
-
-    // Überprüfen, ob der Text vollständig sichtbar ist
-    if (messageContainer.scrollWidth > messageContainer.clientWidth) {
-      // Stoppen der Animation, wenn der Text vollständig sichtbar ist
-      messageContainer.style.animation = 'moveTextStop 1s forwards';
-    }
   }
   
   // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
