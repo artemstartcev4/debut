@@ -10,7 +10,7 @@
 
   .announcement-bar__inner {
     position: relative; /* Relative Positionierung für die Kinder */
-    width: max-content; /* Breite basierend auf dem Inhalt */
+    width: 200%; /* Breite auf das Doppelte des Inhalts setzen */
     white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
   }
@@ -25,10 +25,10 @@
 
   @keyframes moveText {
     0% {
-      left: 100%; /* Startpunkt der Animation - Text beginnt ganz rechts */
+      left: 0; /* Startpunkt der Animation - Text beginnt ganz links */
     }
     100% {
-      left: -100%; /* Endpunkt der Animation - Text verschwindet ganz links */
+      left: -50%; /* Endpunkt der Animation - Text verschwindet bis zur Mitte des ursprünglichen Bereichs */
     }
   }
 </style>
