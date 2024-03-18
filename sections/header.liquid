@@ -27,6 +27,9 @@
 .scrolling-text {
     display: inline-block; /* Erlaubt die Verwendung von padding */
     padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
+}
+
+.scrolling-text {
     animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
 }
 
@@ -101,10 +104,32 @@
     // Einfügen des Textabschnitts in regelmäßigen Abständen
     setInterval(function() {
         insertNewText();
-        startScrolling(announcementBar.querySelector('.scrolling-text:last-child'));
     }, insertInterval);
 })();
 </script>
+
+<style>
+.announcement-bar__message {
+    overflow: hidden; /* Versteckt den überlaufenden Text */
+    white-space: nowrap; /* Verhindert das Umbrechen des Textes */
+}
+.scrolling-text {
+    display: inline-block; /* Erlaubt die Verwendung von padding */
+    padding-right: 20px; /* Hinzufügen eines Abstands zwischen den Textabschnitten */
+}
+
+.scrolling-text {
+    animation: scroll linear infinite; /* CSS-Animation für das Scrollen des Textes */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs rechts */
+    }
+    to {
+        transform: translateX(-100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs links */
+    }
+}
     {% endif %}
   {% endif %}
 
