@@ -1,15 +1,22 @@
 {% if section.settings.message %}
   <style>
-    /* Stellen Sie sicher, dass die Ankündigungsleiste sichtbar bleibt */
     .announcement-bar {
       display: block !important;
       visibility: visible !important;
       opacity: 1 !important;
       position: relative;
       z-index: 9999;
+      background-color: {{ section.settings.color_bg }};
+      color: {{ section.settings.color_text }};
     }
 
-    /* Animation für den Text der Ankündigungsleiste */
+    .announcement-bar__message {
+      white-space: nowrap; /* Verhindert Zeilenumbrüche */
+      overflow: hidden; /* Verhindert das Überlaufen des Textes */
+      position: absolute; /* Positioniert den Text innerhalb der Ankündigungsleiste */
+      animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
+    }
+
     @keyframes slide-in-from-left {
       0% {
         transform: translateX(-100%);
@@ -18,29 +25,19 @@
         transform: translateX(100%); /* Berücksichtigt die Breite der Ankündigungsleiste */
       }
     }
-
-    .announcement-bar__message-container {
-      position: relative; /* Stellt sicher, dass die Nachrichten innerhalb der Ankündigungsleiste sichtbar bleiben */
-    }
-
-    .announcement-bar__message {
-      animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
-      white-space: nowrap; /* Verhindert Zeilenumbrüche */
-      overflow: hidden; /* Verhindert das Überlaufen des Textes */
-      position: absolute; /* Positioniert den Text innerhalb der Ankündigungsleiste */
-    }
   </style>
 
 {% endif %}
 
-  <script>
+ <script>
     document.addEventListener('DOMContentLoaded', function() {
       var messages = document.querySelectorAll('.announcement-bar__message');
-      var delay = 0; // Startverzögerung für den ersten Text
+      var delay = 0;
 
       messages.forEach(function(message, index) {
-        message.style.animationDelay = (index * 2) + 's'; // Setzt die Verzögerung für jeden Text
-      });;
+        message.style.animationDelay = (index * 2) + 's';
+      });
+    });
   </script>
 
 {% render 'search-drawer' %}
