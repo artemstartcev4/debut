@@ -1,5 +1,5 @@
 {% if section.settings.message %}
-<style>
+  <style>
     {% if section.settings.logo != blank %}
       .site-header__logo-image {
         max-width: {{ section.settings.logo_max_width | escape }}px;
@@ -10,22 +10,23 @@
       .site-header__logo-image {
         margin: 0;
       }
-      @keyframes slide-in-from-left {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(100%);
-        }
-      }
-
-      .announcement-bar__message {
-        animation: slide-in-from-left 10s linear infinite;
-      }
     {% endif %}
+    
+    /* Stil für die Ankündigungsleiste */
+    .announcement-bar__message {
+      /* Hier können Sie den Stil für den Text der Ankündigungsleiste festlegen */
+      /* Zum Beispiel: */
+      padding: 10px; /* Platz um den Text */
+      background-color: #f8d7da; /* Hintergrundfarbe */
+      color: #721c24; /* Textfarbe */
+      border: 1px solid #f5c6cb; /* Rahmen */
+    }
   </style>
-{% endif %}
 
+  <div class="announcement-bar__message">
+    {{ section.settings.message }}
+  </div>
+{% endif %}
 {% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
