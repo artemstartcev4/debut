@@ -19,6 +19,7 @@
 
     .announcement-bar__message {
       color: {{ section.settings.color_text }};
+      font-size: 14px; /* Schriftgröße kleiner machen */
     }
   </style>
 
@@ -26,6 +27,10 @@
     {%- unless section.settings.message_link == blank -%}
       <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
     {%- endunless -%}
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
         <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     {%- unless section.settings.message_link == blank -%}
       </a>
