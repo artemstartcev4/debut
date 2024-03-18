@@ -63,48 +63,45 @@
 (function() {
     var announcementBar = document.querySelector('.announcement-bar__message');
     var originalMessage = "{{ section.settings.message_text | escape }}"; // Ursprünglicher Text
-    var scrollSpeed = 1; // Geschwindigkeit der Bewegung (in Pixel)
     var insertInterval = 1500; // Intervall für das Einfügen eines neuen Textes (in Millisekunden)
-
-    // Funktion zum Starten der Animation für einen Textabschnitt
-    function startScrolling(textElement) {
-        var distance = textElement.offsetWidth; // Breite des Textes
-        var position = 0;
-
-        // Funktion zur Animation des Textes
-        function scroll() {
-            position += scrollSpeed;
-            if (position > distance) {
-                position = -distance; // Setzt die Position zurück, um die Animation zu wiederholen
-            }
-            textElement.style.transform = 'translateX(' + position + 'px)';
-            requestAnimationFrame(scroll);
-        }
-
-        // Starten der Animation
-        scroll();
-    }
 
     // Funktion zum Einfügen eines neuen Textabschnitts
     function insertNewText() {
         var newMessage = document.createElement('span');
-        newMessage.className = 'spacer';
+        newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
-        startScrolling(newMessage); // Starten der Animation für den neuen Text
+        setTimeout(function() {
+            announcementBar.removeChild(newMessage);
+        }, insertInterval); // Entfernen des Textabschnitts nach einer gewissen Zeit
     }
 
-    // Setzen des ursprünglichen Textabschnitts und Starten seiner Animation
-    var originalText = document.createElement('span');
-    originalText.className = 'spacer';
-    originalText.innerText = originalMessage;
-    announcementBar.appendChild(originalText);
-    startScrolling(originalText);
+    // Einfügen des ursprünglichen Textabschnitts und Starten der Animation
+    insertNewText();
 
     // Einfügen des Textabschnitts in regelmäßigen Abständen
     setInterval(insertNewText, insertInterval);
 })();
 </script>
+
+<style>
+.announcement-bar__message {
+    overflow: hidden; /* Versteckt den überlaufenden Text */
+    white-space: nowrap; /* Verhindert das Umbrechen des Textes */
+}
+.scrolling-text {
+    animation: scroll 10s linear infinite; /* CSS-Animation für das Scrollen des Textes */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(-100%); /* Startpunkt: Text außerhalb des sichtbaren Bereichs links */
+    }
+    to {
+        transform: translateX(100%); /* Endpunkt: Text außerhalb des sichtbaren Bereichs rechts */
+    }
+}
+</style>
     {% endif %}
   {% endif %}
 
