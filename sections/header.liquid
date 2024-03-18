@@ -298,6 +298,16 @@
       },
       "url": {{ shop.url | append: page.url | json }}
     }
+    window.addEventListener('DOMContentLoaded', function() {
+    var announcementBar = document.querySelector('.announcement-bar');
+    var messages = announcementBar.querySelectorAll('span');
+
+    // Dupliziere Nachrichten, um sie wiederholt anzuzeigen
+    for (var i = 0; i < messages.length; i++) {
+      var clone = messages[i].cloneNode(true);
+      announcementBar.appendChild(clone);
+    }
+  });
   </script>
 {% endif %}
 
