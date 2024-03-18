@@ -6,6 +6,10 @@
       }
     {% endif %}
 
+    .announcement-bar {
+      position: relative; /* Stellt sicher, dass die Ankündigungsleiste sichtbar bleibt */
+    }
+
     {% if section.settings.align_logo == 'left' %}
       .site-header__logo-image {
         margin: 0;
@@ -21,11 +25,15 @@
         }
       }
 
+      .announcement-bar__message-container {
+        position: relative; /* Stellt sicher, dass die Nachrichten innerhalb der Ankündigungsleiste sichtbar bleiben */
+      }
+
       .announcement-bar__message {
         animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
         white-space: nowrap; /* Verhindert Zeilenumbrüche */
         overflow: hidden; /* Verhindert das Überlaufen des Textes */
-        position: absolute; /* Positioniert den Text */
+        position: absolute; /* Positioniert den Text innerhalb der Ankündigungsleiste */
       }
     {% endif %}
   </style>
@@ -42,7 +50,6 @@
     });
   </script>
 {% endif %}
-
 
 
   <script>
