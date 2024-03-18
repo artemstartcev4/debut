@@ -20,7 +20,26 @@
       justify-content: center; /* Horizontal zentrieren */
       align-items: center; /* Vertikal zentrieren */
     }
-    
+    .announcement-bar__message {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+}
+
+.scrolling-text {
+    position: absolute;
+    animation: scroll linear infinite;
+    animation-duration: 10s; /* Geschwindigkeit der Animation */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 {% endif %}
 
 {% render 'search-drawer' %}
@@ -53,89 +72,7 @@
       <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     </marquee>
   </div>
-<style>
-.announcement-bar__message {
-    overflow: hidden;
-    white-space: nowrap;
-}
 
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-.scrolling-text {
-    display: inline-block;
-    padding-right: 20px;
-    animation: scroll linear infinite; /* Keine Dauer hier setzen */
-}
-<style>
-.announcement-bar__message {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-.scrolling-text {
-    display: inline-block;
-    padding-right: 20px;
-    animation: scroll linear infinite; /* Keine Dauer hier setzen */
-}
-<style>
-.announcement-bar__message {
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-.scrolling-text {
-    display: inline-block;
-    padding-right: 20px;
-    animation: scroll linear infinite; /* Keine Dauer hier setzen */
-}
-<style>
-.announcement-bar__message {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-}
-
-.scrolling-text {
-    position: absolute;
-    animation: scroll linear infinite;
-    animation-duration: 10s; /* Geschwindigkeit der Animation */
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-</style>
 <script>
 (function() {
     var announcementBar = document.getElementById('announcement-bar');
@@ -148,6 +85,10 @@
         newMessage.className = 'scrolling-text';
         newMessage.innerText = originalMessage;
         announcementBar.appendChild(newMessage);
+        
+        setTimeout(function() {
+            announcementBar.removeChild(newMessage);
+        }, 10000); // Entfernen des Textabschnitts nach 10 Sekunden
     }
 
     // Einfügen des Textabschnitts in regelmäßigen Abständen
@@ -156,9 +97,6 @@
     }, insertInterval);
 })();
 </script>
-
-
-
     {% endif %}
   {% endif %}
 
