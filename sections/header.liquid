@@ -24,7 +24,7 @@
       .announcement-bar__message {
         white-space: nowrap; /* Verhindert Zeilenumbrüche */
         overflow: hidden; /* Verhindert das Überlaufen des Textes */
-        animation: slide-in-from-left 10s linear infinite; /* Animation alle 10 Sekunden wiederholen */
+        position: absolute; /* Positioniert den Text */
       }
     {% endif %}
   </style>
@@ -34,10 +34,14 @@
     document.addEventListener('DOMContentLoaded', function() {
       var messages = document.querySelectorAll('.announcement-bar__message');
       var delay = 0; // Startverzögerung für den ersten Text
+      var xPos = 0; // Startposition für den ersten Text
 
       messages.forEach(function(message) {
+        message.style.animation = 'slide-in-from-left 10s linear infinite'; // Animation für jeden Text setzen
         message.style.animationDelay = delay + 's'; // Setzt die Verzögerung für jeden Text
-        delay += 10; // Inkrementiert die Verzögerung für den nächsten Text
+        message.style.left = xPos + 'px'; // Setzt die Position für jeden Text
+        delay += 2; // Inkrementiert die Verzögerung für den nächsten Text
+        xPos += message.offsetWidth; // Inkrementiert die Position für den nächsten Text
       });
     });
   </script>
