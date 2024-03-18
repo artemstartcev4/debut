@@ -11,19 +11,19 @@
   .announcement-bar__inner {
     display: flex; /* Flexbox verwenden */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+    white-space: nowrap; /* Verhindern, dass der Text umbricht */
   }
 
   .announcement-bar__message {
     color: white; /* Textfarbe auf Weiß setzen */
     font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
-    white-space: nowrap; /* Verhindern, dass der Text umbricht */
     padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
   }
 
   @keyframes moveText {
     0% {
-      transform: translateX(100%); /* Startpunkt der Animation */
+      transform: translateX(0); /* Startpunkt der Animation */
     }
     100% {
       transform: translateX(-100%); /* Endpunkt der Animation */
@@ -33,29 +33,25 @@
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
   <div class="announcement-bar__inner">
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    <!-- Platz für weitere Nachrichten -->
+    {% for message in section.settings.messages %}
+    <p class="announcement-bar__message">{{ message | escape }}</p>
+    {% endfor %}
   </div>
 </div>
 
 <script>
-  // Funktion zum regelmäßigen Hinzufügen neuer Texte
-  function addNewMessage() {
+  // Funktion zum regelmäßigen Verschieben des Textes
+  function moveText() {
     var messageContainer = document.querySelector('.announcement-bar__inner');
-    var newMessage = document.createElement('p');
-    newMessage.classList.add('announcement-bar__message');
-    newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
-    messageContainer.appendChild(newMessage);
+    var firstMessage = messageContainer.querySelector('.announcement-bar__message');
+    messageContainer.appendChild(firstMessage);
   }
   
-  // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
-  setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
+  // Verschieben Sie den Text alle 5 Sekunden
+  setInterval(moveText, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
+
 
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
