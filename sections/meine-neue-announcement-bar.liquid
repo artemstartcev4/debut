@@ -93,3 +93,55 @@
   ]
 }
 {% endschema %}
+{% style %}
+  .{{ section.id }} {
+  background-color: {{section.settings.background}};
+  color: {{section.settings.text-color}};
+  font-size: {{section.settings.font-size}}px;
+}
+
+.{{ section.id }} .trust-icons {
+  display: none;
+  }
+  
+.{{ section.id }} ul.trust-icons {
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+}
+
+.{{ section.id }} .flex {
+  list-style-type:none;
+}
+
+.{{ section.id }} .carousel {
+  text-align: center;
+}
+
+.{{ section.id }} .carousel-item {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.{{ section.id }} .carousel-item.active {
+  opacity: 1;
+  height: auto;
+}
+
+.{{ section.id }} .carousel-item li {
+  padding: 4px 5%;
+}
+
+@media screen and (min-width: 700px) {
+  .{{ section.id }} .carousel {
+    display: none;
+  }
+  .{{ section.id }} .trust-icons {
+    display: block;
+  }
+}
+{% endstyle %}
