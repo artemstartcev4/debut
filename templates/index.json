@@ -1,52 +1,5 @@
 {
   "sections": {
-    "meine_neue_announcement_bar_Rag74m": {
-      "type": "meine-neue-announcement-bar",
-      "blocks": {
-        "text_geQN9B": {
-          "type": "text",
-          "settings": {
-            "text": "Dein Trust Text hier"
-          }
-        },
-        "text_Rt4AFm": {
-          "type": "text",
-          "settings": {
-            "text": "Dein Trust Text hier"
-          }
-        },
-        "text_a3Q46m": {
-          "type": "text",
-          "settings": {
-            "text": "Dein Trust Text hier"
-          }
-        },
-        "text_pqjDUy": {
-          "type": "text",
-          "settings": {
-            "text": "Dein Trust Text hier"
-          }
-        },
-        "text_qCb9WC": {
-          "type": "text",
-          "settings": {
-            "text": "Dein Trust Text hier"
-          }
-        }
-      },
-      "block_order": [
-        "text_geQN9B",
-        "text_Rt4AFm",
-        "text_a3Q46m",
-        "text_pqjDUy",
-        "text_qCb9WC"
-      ],
-      "settings": {
-        "background": "#000000",
-        "text-color": "#ffffff",
-        "font-size": 12
-      }
-    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
@@ -58,7 +11,7 @@
             "title": "Gentles-Skin Improver",
             "text": "<p>Erleben Sie die revolutionäre Pflege für Ihren Hals mit unserem GentleSkin. Entwickelt, um die empfindliche Haut Ihres Halses zu straffen und zu glätten, bietet unser Gerät eine gezielte Lösung für ein jugendlicheres Erscheinungsbild. Genießen Sie straffere Konturen und eine verbesserte Hautelastizität für ein selbstbewusstes und elegantes Auftreten.<\/p>",
             "button_label": "Jetzt Anschauen",
-            "button_link": "shopify:\/\/products\/gentleskin"
+            "button_link": "shopify:\/\/products\/gentles-skin-improver"
           }
         },
         "feature-columns-0": {
@@ -212,7 +165,6 @@
     }
   },
   "order": [
-    "meine_neue_announcement_bar_Rag74m",
     "feature-columns",
     "collection",
     "hero-2",
