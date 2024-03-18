@@ -54,13 +54,9 @@
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-    <marquee behavior="scroll" direction="right">
-      {{ section.settings.message_text | escape }} <!-- Erster Schriftzug -->
-      &nbsp;&nbsp;&nbsp;&nbsp; <!-- Abstand zwischen den Schriftzügen -->
-      {{ section.settings.message_text | escape }} <!-- Zweiter Schriftzug -->
-      &nbsp;&nbsp;&nbsp;&nbsp; <!-- Abstand zwischen den Schriftzügen -->
-      {{ section.settings.message_text | escape }} <!-- Dritter Schriftzug -->
-    </marquee>
+    <div class="announcement-bar__content" id="announcement-bar-content">
+      {{ section.settings.message_text | escape }}
+    </div>
   </div>
 
 
@@ -311,6 +307,26 @@
       },
       "url": {{ shop.url | append: page.url | json }}
     }
+     document.addEventListener("DOMContentLoaded", function() {
+      var announcementBarContent = document.getElementById("announcement-bar-content");
+      var originalContent = announcementBarContent.innerHTML;
+      var clonedContent = originalContent + "&nbsp;&nbsp;&nbsp;&nbsp;"; // Füge zusätzlichen Abstand hinzu
+      var counter = 1;
+
+      function updateContent() {
+        announcementBarContent.innerHTML += clonedContent;
+        counter++;
+
+        // Begrenze die Anzahl der Schriftzüge für eine bessere Leistung
+        // Je nach Länge des Textinhalts können Sie diesen Wert anpassen
+        if (counter <= 10) {
+          requestAnimationFrame(updateContent);
+        }
+      }
+
+      // Starte die endlose Animation
+      updateContent();
+    });
   </script>
 {% endif %}
 
