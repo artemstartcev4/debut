@@ -1,28 +1,30 @@
-<style>
+{% if section.settings.message %}
+  <style>
   /* Stil für die Ankündigungsleiste */
   .announcement-bar {
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
+    display: flex; /* Flexbox verwenden */
+    align-items: center; /* Text vertikal zentrieren */
     padding: 5px; /* Ränder verkleinern */
     height: auto; /* Automatische Höhe basierend auf Inhalt */
     overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
   }
 
-  .announcement-bar__inner {
+  .announcement-bar__container {
     display: flex; /* Flexbox verwenden */
     animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
   }
 
   .announcement-bar__message {
-    color: white; /* Textfarbe auf Weiß setzen */
+    color: {{ section.settings.color_text }};
     font-size: 12px; /* Schriftgröße kleiner machen */
     margin: 0; /* Rand aufheben */
     white-space: nowrap; /* Verhindern, dass der Text umbricht */
-    padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
   }
 
   @keyframes moveText {
     0% {
-      transform: translateX(100%); /* Startpunkt der Animation */
+      transform: translateX(0); /* Startpunkt der Animation */
     }
     100% {
       transform: translateX(-100%); /* Endpunkt der Animation */
@@ -31,7 +33,7 @@
 </style>
 
 <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
-  <div class="announcement-bar__inner">
+  <div class="announcement-bar__container">
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
@@ -39,6 +41,7 @@
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
   </div>
 </div>
+{% endif %}
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
