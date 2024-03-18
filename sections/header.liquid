@@ -22,6 +22,9 @@
       <style>
         .announcement-bar {
           background-color: {{ section.settings.color_bg }};
+          overflow: hidden; /* Verhindert horizontales Scrollen */
+          white-space: nowrap; /* Verhindert Zeilenumbruch */
+          animation: marquee 15s linear infinite; /* Animationsdefinition */
         }
 
         .announcement-bar__link:hover {
@@ -38,10 +41,19 @@
 
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
+          display: inline-block;
+          padding-right: 100%;
+        }
+        @keyframes marquee {
+          0% { transform: translateX(100%); } /* Startpunkt rechts außerhalb des sichtbaren Bereichs */
+          100% { transform: translateX(-100%); } /* Endpunkt links außerhalb des sichtbaren Bereichs */
         }
       </style>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+        {% for i in (1..4) %}
+          <span class="announcement-bar__message">{{ section.settings.message_text | escape }}</span>
+        {% endfor %}
         {%- unless section.settings.message_link == blank -%}
           <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
         {%- endunless -%}
@@ -298,16 +310,7 @@
       },
       "url": {{ shop.url | append: page.url | json }}
     }
-    window.addEventListener('DOMContentLoaded', function() {
-    var announcementBar = document.querySelector('.announcement-bar');
-    var messages = announcementBar.querySelectorAll('span');
-
-    // Dupliziere Nachrichten, um sie wiederholt anzuzeigen
-    for (var i = 0; i < messages.length; i++) {
-      var clone = messages[i].cloneNode(true);
-      announcementBar.appendChild(clone);
-    }
-  });
+    
   </script>
 {% endif %}
 
