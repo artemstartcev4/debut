@@ -73,13 +73,24 @@
               {% else %}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
-            {% when 'text' %}
+           {% when 'text' %}
 <div class="medium-up--text-{{ block.settings.align_text }}">
     {% if block.settings.title != blank %}
         <h4 class="h3">{{ block.settings.title | escape }}</h4>
     {% endif %}
     {% if block.settings.text != blank %}
-        <div class="rte-setting rte" style="opacity: 0; animation: fadeIn 1s ease-in-out;">{{ block.settings.text }}</div>
+        <div class="rte-setting rte" style="opacity: 0;">
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var textElement = document.querySelector('.rte-setting');
+                    setTimeout(function() {
+                        textElement.style.transition = 'opacity 1s ease-in-out';
+                        textElement.style.opacity = '1';
+                    }, 500); // Setze hier eine Verzögerung, falls erforderlich
+                });
+            </script>
+            {{ block.settings.text }}
+        </div>
     {% endif %}
 </div>
             {% when 'video' %}
