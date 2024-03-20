@@ -1,19 +1,22 @@
 {
   "sections": {
+    "hero_6DREMU": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/360_F_217455897_ZCEcEea9VSnniQpQrEqaabQt7b3IzIpO.webp",
+        "alignment": "center",
+        "hero_layout": "full_width",
+        "hero_size": "small",
+        "text_size": "medium",
+        "title": "",
+        "text": "<h2><em><strong>Gentle- <\/strong><\/em><em>Where Your Care Comes First<\/em><\/h2>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
-        "text_block_cktVwa": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify:\/\/shop_images\/S0ec87100a71f4ab2af76d0b45fae7b96K_027f9f2b-55e7-4595-9d4b-65c330510dd9.webp",
-            "title": "Gentles-Skin Improver",
-            "text": "<p>Erleben Sie die revolutionäre Pflege für Ihren Hals mit unserem GentleSkin. Entwickelt, um die empfindliche Haut Ihres Halses zu straffen und zu glätten, bietet unser Gerät eine gezielte Lösung für ein jugendlicheres Erscheinungsbild. Genießen Sie straffere Konturen und eine verbesserte Hautelastizität für ein selbstbewusstes und elegantes Auftreten.<\/p>",
-            "button_label": "Jetzt Anschauen",
-            "button_link": "shopify:\/\/products\/gentles-skin-improver"
-          }
-        },
         "feature-columns-0": {
           "type": "text_block",
           "settings": {
@@ -25,150 +28,30 @@
             "button_link": "shopify:\/\/products\/gentleclear"
           }
         },
-        "feature-columns-1": {
+        "text_block_cktVwa": {
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "title": "Add a title or tagline",
-            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "feature-columns-2": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "title": "Add a title or tagline",
-            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "text_block_wKWQwp": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "title": "Add a title or tagline",
-            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
-            "button_label": "",
-            "button_link": ""
+            "image": "shopify:\/\/shop_images\/S0ec87100a71f4ab2af76d0b45fae7b96K_027f9f2b-55e7-4595-9d4b-65c330510dd9.webp",
+            "title": "Gentles-Skin Improver",
+            "text": "<p>Erleben Sie die revolutionäre Pflege für Ihren Hals mit unserem GentleSkin. Entwickelt, um die empfindliche Haut Ihres Halses zu straffen und zu glätten, bietet unser Gerät eine gezielte Lösung für ein jugendlicheres Erscheinungsbild. Genießen Sie straffere Konturen und eine verbesserte Hautelastizität für ein selbstbewusstes und elegantes Auftreten.<\/p>",
+            "button_label": "Jetzt Anschauen",
+            "button_link": "shopify:\/\/products\/gentles-skin-improver"
           }
         }
       },
       "block_order": [
-        "text_block_cktVwa",
         "feature-columns-0",
-        "feature-columns-1",
-        "feature-columns-2",
-        "text_block_wKWQwp"
+        "text_block_cktVwa"
       ],
       "settings": {
         "title": "",
         "align_text": "left"
       }
-    },
-    "collection": {
-      "type": "collection",
-      "settings": {
-        "title": "Featured collection",
-        "collection": "",
-        "grid": 4,
-        "rows": 2,
-        "show_vendor": false,
-        "show_view_all": false
-      }
-    },
-    "hero-2": {
-      "type": "hero",
-      "settings": {
-        "alignment": "center",
-        "hero_layout": "full_width",
-        "hero_size": "medium",
-        "text_size": "large",
-        "title": "Image with text overlay",
-        "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "quotes": {
-      "type": "quotes",
-      "blocks": {
-        "quotes-0": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
-          }
-        },
-        "quotes-1": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
-          }
-        },
-        "quotes-2": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
-          }
-        }
-      },
-      "block_order": [
-        "quotes-0",
-        "quotes-1",
-        "quotes-2"
-      ],
-      "settings": {
-        "title": ""
-      }
-    },
-    "image-bar": {
-      "type": "image-bar",
-      "blocks": {
-        "image-bar-0": {
-          "type": "image",
-          "settings": {
-            "alignment": "center",
-            "link": "",
-            "cta_label": ""
-          }
-        },
-        "image-bar-1": {
-          "type": "image",
-          "settings": {
-            "alignment": "center",
-            "link": "",
-            "cta_label": ""
-          }
-        },
-        "image-bar-2": {
-          "type": "image",
-          "settings": {
-            "alignment": "center",
-            "link": "",
-            "cta_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "image-bar-0",
-        "image-bar-1",
-        "image-bar-2"
-      ],
-      "settings": {
-        "section_height": "medium"
-      }
     }
   },
   "order": [
-    "feature-columns",
-    "collection",
-    "hero-2",
-    "quotes",
-    "image-bar"
+    "hero_6DREMU",
+    "feature-columns"
   ]
 }
