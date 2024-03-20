@@ -74,7 +74,21 @@
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
             {% when 'text' %}
-              <div class="medium-up--text-{{ block.settings.align_text }}">
+              <div class="medium-up--text-{{ block.settings.align_text }}text-auf-bild">
+                /* Definiere die Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Starte mit einer Opazität von 0 (unsichtbar) */
+  }
+  to {
+    opacity: 1; /* Endet mit einer Opazität von 1 (voll sichtbar) */
+  }
+}
+
+/* Wende die Animation auf den Text an */
+.text-auf-bild {
+  animation: fadeIn 1s ease-in-out; /* Dauer: 1 Sekunde, Animationseffekt: Ein- und Ausblenden */
+}
                 {% if block.settings.title != blank %}
                   <h4 class="h3">{{ block.settings.title | escape }}</h4>
                 {% endif %}
