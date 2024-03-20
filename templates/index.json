@@ -2,6 +2,10 @@
   "sections": {
     "hero_6DREMU": {
       "type": "hero",
+      "custom_css": [
+        ".text-overlay {opacity: 0; transition: opacity 1s ease-in-out;}",
+        ".text-overlay.fade-in {opacity: 1;}"
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/360_F_217455897_ZCEcEea9VSnniQpQrEqaabQt7b3IzIpO.webp",
         "alignment": "center",
