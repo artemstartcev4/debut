@@ -6978,11 +6978,16 @@ hr {
 
 .store-availability-list__phone {
   margin-bottom: 0; }
-.fade-in {
-    opacity: 0; /* Startet mit einer Opazität von 0 */
-    transition: opacity 5s ease; /* Fügt einen Übergangseffekt für die Opazität hinzu */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-.fade-in.show {
-    opacity: 1; /* Ändert die Opazität auf 1, um den Fade-In-Effekt zu zeigen */
+.fade-in {
+    opacity: 0;
+    animation: fade-in 2s ease-in-out; /* 2 Sekunden Dauer */
 }
