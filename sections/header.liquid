@@ -1,5 +1,5 @@
 {% if section.settings.message %}
-<style>
+ <style>
   /* Stil für die Ankündigungsleiste */
   .announcement-bar {
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
@@ -9,36 +9,26 @@
   }
 
   .announcement-bar__inner {
-    position: relative; /* Relative Positionierung für die Kinder */
-    width: 100%; /* Breite auf 100% setzen */
-    white-space: nowrap; /* Verhindern, dass der Text umgebrochen wird */
-    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
-    display: flex; /* Flexbox verwenden */
-  }
+  display: flex; /* Flexbox verwenden */
+  animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+  width: 100%; /* Containerbreite auf 100% setzen */
+  overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
+}
 
-  .announcement-bar__message {
-    color: white; /* Textfarbe auf Weiß setzen */
-    font-size: 12px; /* Schriftgröße kleiner machen */
-    margin: 0; /* Rand aufheben */
-    padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-    animation: fadeIn linear 2s forwards; /* Text-Einblendanimation */
-  }
+.announcement-bar__message {
+  color: white; /* Textfarbe auf Weiß setzen */
+  font-size: 12px; /* Schriftgröße kleiner machen */
+  margin: 0; /* Rand aufheben */
+  white-space: nowrap; /* Verhindern, dass der Text umbricht */
+  padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
+}
 
   @keyframes moveText {
     0% {
-      transform: translateX(100%); /* Startpunkt der Animation - Text beginnt ganz rechts */
+      transform: translateX(100%); /* Startpunkt der Animation */
     }
     100% {
-      transform: translateX(-100%); /* Endpunkt der Animation - Text verschwindet ganz links */
-    }
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0; /* Startpunkt der Einblendung - Text ist unsichtbar */
-    }
-    100% {
-      opacity: 1; /* Endpunkt der Einblendung - Text ist vollständig sichtbar */
+      transform: translateX(-100%); /* Endpunkt der Animation */
     }
   }
 </style>
@@ -50,7 +40,6 @@
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
-    
     <!-- Platz für weitere Nachrichten -->
   </div>
 </div>
@@ -58,20 +47,18 @@
 <script>
   // Funktion zum regelmäßigen Hinzufügen neuer Texte
   function addNewMessage() {
-    var messageContainer = document.querySelector('.announcement-bar__inner');
-    var newMessage = document.createElement('p');
-    newMessage.classList.add('announcement-bar__message');
-    newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
-    
-    // Neue Nachricht hinzufügen
-    messageContainer.appendChild(newMessage);
-  }
+  var messageContainer = document.querySelector('.announcement-bar__inner');
   
-  // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
-  setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
+  var newMessage = document.createElement('p');
+  newMessage.classList.add('announcement-bar__message');
+  newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
+  messageContainer.appendChild(newMessage);
+}
+
+// Fügen Sie alle 5 Sekunden einen neuen Text hinzu
+setInterval(addNewMessage, 5000);
 </script>
 {% endif %}
-
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
