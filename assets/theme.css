@@ -6978,11 +6978,11 @@ hr {
 
 .store-availability-list__phone {
   margin-bottom: 0; }
-.hero__text {
-    opacity: 0; /* Setzt die Anfangsopazität auf 0 */
-    transition: opacity 1s ease; /* Fügt eine Übergangseigenschaft hinzu */
+.fade-in {
+    opacity: 0; /* Startet mit einer Opazität von 0 */
+    transition: opacity 1s ease; /* Fügt einen Übergangseffekt für die Opazität hinzu */
 }
 
-.hero__text.fade-in {
-    opacity: 1; /* Setzt die Endopazität auf 1 */
+.fade-in.show {
+    opacity: 1; /* Ändert die Opazität auf 1, um den Fade-In-Effekt zu zeigen */
 }
