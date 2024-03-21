@@ -6979,15 +6979,15 @@ hr {
 .store-availability-list__phone {
   margin-bottom: 0; }
 @keyframes fade-in {
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
+    to {
         opacity: 1;
     }
 }
 
 .fade-in {
     opacity: 0;
-    animation: fade-in 2s ease-in-out; /* 2 Sekunden Dauer */
+    animation: fade-in 2s ease-in-out forwards; /* 2 Sekunden Dauer, forwards bedeutet, dass der letzte Rahmen nach Abschluss der Animation beibehalten wird */
 }
