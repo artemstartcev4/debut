@@ -9620,4 +9620,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // eslint-disable-next-line no-unused-vars
 function onYouTubeIframeAPIReady() {
   theme.Video.loadVideos();
-}
+}document.addEventListener("DOMContentLoaded", function() {
+    // Warten Sie, bis die Seite vollständig geladen ist
+    var elements = document.querySelectorAll('.fade-in'); // Wählen Sie alle Elemente mit der Klasse "fade-in" aus
+    elements.forEach(function(element) {
+        element.classList.add('fade-in-animation'); // Fügen Sie eine CSS-Klasse hinzu, um den Fade-In-Effekt zu aktivieren
+    });
+});
