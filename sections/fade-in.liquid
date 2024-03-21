@@ -1,6 +1,13 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
-{% endschema %}
+<!-- fade-in.js -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Warte 100 Millisekunden, um sicherzustellen, dass die Elemente vollständig geladen sind
+        setTimeout(function() {
+            // Füge die Klasse "show" hinzu, um den Fade-In-Effekt zu aktivieren
+            document.querySelectorAll('.fade-in').forEach(function(element) {
+                element.classList.add('show');
+            });
+        }, 100);
+    });
+</script>
