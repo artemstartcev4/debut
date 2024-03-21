@@ -224,10 +224,28 @@
       "cartChangeUrl": "{{ routes.cart_change_url }}"
     }
   </script>
+   <style>
+    /* CSS-Regeln für Hover-Animationen */
+    .button {
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff0000; /* Ändern Sie die Hintergrundfarbe entsprechend Ihrer Designpräferenzen */
+    }
+  </style>
 
   <ul hidden>
     <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var poweredByShopifyElement = document.querySelector('.site-footer__copyright');
+    if (poweredByShopifyElement) {
+        poweredByShopifyElement.parentNode.removeChild(poweredByShopifyElement);
+    }
+});
+</script>
 </body>
 </html>
