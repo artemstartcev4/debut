@@ -56,12 +56,7 @@
   setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
 {% endif %}
-<div class="site-header__search">
-  <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top" data-predictive-search-open-drawer>
-    {% render 'icon-search' %}
-    <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
-  </button>
-</div>
+
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% if section.settings.align_logo == 'center' %}
