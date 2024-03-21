@@ -1,5 +1,4 @@
-{% if section.settings.message %}
- <style>
+<style>
   /* Stil für die Ankündigungsleiste */
   .announcement-bar {
     background-color: black; /* Hintergrundfarbe auf Schwarz setzen */
@@ -9,19 +8,17 @@
   }
 
   .announcement-bar__inner {
-  display: flex; /* Flexbox verwenden */
-  animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
-  width: 100%; /* Containerbreite auf 100% setzen */
-  overflow: hidden; /* Überlauf verstecken, um das Bewegen des Textes außerhalb der Leiste zu verhindern */
-}
+    display: flex; /* Flexbox verwenden */
+    animation: moveText 20s linear infinite; /* Animationseigenschaften festlegen */
+  }
 
-.announcement-bar__message {
-  color: white; /* Textfarbe auf Weiß setzen */
-  font-size: 12px; /* Schriftgröße kleiner machen */
-  margin: 0; /* Rand aufheben */
-  white-space: nowrap; /* Verhindern, dass der Text umbricht */
-  padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
-}
+  .announcement-bar__message {
+    color: white; /* Textfarbe auf Weiß setzen */
+    font-size: 12px; /* Schriftgröße kleiner machen */
+    margin: 0; /* Rand aufheben */
+    white-space: nowrap; /* Verhindern, dass der Text umbricht */
+    padding-right: 20px; /* Rechten Abstand hinzufügen, um Lücken zwischen den Texten zu vermeiden */
+  }
 
   @keyframes moveText {
     0% {
@@ -47,18 +44,16 @@
 <script>
   // Funktion zum regelmäßigen Hinzufügen neuer Texte
   function addNewMessage() {
-  var messageContainer = document.querySelector('.announcement-bar__inner');
+    var messageContainer = document.querySelector('.announcement-bar__inner');
+    var newMessage = document.createElement('p');
+    newMessage.classList.add('announcement-bar__message');
+    newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
+    messageContainer.appendChild(newMessage);
+  }
   
-  var newMessage = document.createElement('p');
-  newMessage.classList.add('announcement-bar__message');
-  newMessage.textContent = '{{ section.settings.message_text | escape }}'; // Hier können Sie Ihren eigenen Text platzieren
-  messageContainer.appendChild(newMessage);
-}
-
-// Fügen Sie alle 5 Sekunden einen neuen Text hinzu
-setInterval(addNewMessage, 5000);
+  // Fügen Sie alle 5 Sekunden einen neuen Text hinzu
+  setInterval(addNewMessage, 5000); // 5000 Millisekunden entsprechen 5 Sekunden
 </script>
-{% endif %}
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
