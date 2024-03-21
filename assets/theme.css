@@ -6980,7 +6980,7 @@ hr {
   margin-bottom: 0; }
 .fade-in {
     opacity: 0; /* Startet mit einer Opazität von 0 */
-    transition: opacity 1s ease; /* Fügt einen Übergangseffekt für die Opazität hinzu */
+    transition: opacity 5s ease; /* Fügt einen Übergangseffekt für die Opazität hinzu */
 }
 
 .fade-in.show {
