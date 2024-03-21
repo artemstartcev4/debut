@@ -124,7 +124,7 @@
           "footer-0"
         ],
         "custom_css": [
-          "\/* CSS, um das \"Powered by Shopify\" zu verstecken *\/.site-footer__copyright {display: none;}"
+          "\/* CSS, um das \"Powered by Shopify\" zu verstecken *\/footer .site-footer__copyright {display: none !important;}"
         ],
         "settings": {
           "show_payment_icons": true,
