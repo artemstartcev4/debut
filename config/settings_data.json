@@ -123,6 +123,9 @@
         "block_order": [
           "footer-0"
         ],
+        "custom_css": [
+          "\/* CSS, um das \"Powered by Shopify\" zu verstecken *\/.site-footer__copyright {display: none;}"
+        ],
         "settings": {
           "show_payment_icons": true,
           "color_footer_bg": "#f6f6f6",
