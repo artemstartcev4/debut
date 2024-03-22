@@ -17,6 +17,15 @@
         "button_link": ""
       }
     },
+    "rich_text_fw68rt": {
+      "type": "rich-text",
+      "settings": {
+        "full_width": true,
+        "section_title": "",
+        "text": "<p><em><strong>Welcome to Gentle<\/strong><\/em><em>, where beauty meets convenience! Step inside and <\/em><em><strong>explore<\/strong><\/em><em> our curated collection of <\/em><em><strong>premium hair care, skincare, and wellness products<\/strong><\/em><em>. From luxurious hair tools to nourishing skincare essentials, <\/em><em><strong>we're here to help you look and feel amazing<\/strong><\/em><em> every day. <\/em><em><strong>Start <\/strong><\/em><em>your journey to <\/em><em><strong>a better self-care<\/strong><\/em><em> with us <\/em><em><strong>today!<\/strong><\/em><\/p>",
+        "text_size": "medium"
+      }
+    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
@@ -35,7 +44,6 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify:\/\/shop_images\/S0ec87100a71f4ab2af76d0b45fae7b96K_027f9f2b-55e7-4595-9d4b-65c330510dd9.webp",
             "title": "Gentles-Skin Improver",
             "text": "<p>Erleben Sie die revolutionäre Pflege für Ihren Hals mit unserem GentleSkin. Entwickelt, um die empfindliche Haut Ihres Halses zu straffen und zu glätten, bietet unser Gerät eine gezielte Lösung für ein jugendlicheres Erscheinungsbild. Genießen Sie straffere Konturen und eine verbesserte Hautelastizität für ein selbstbewusstes und elegantes Auftreten.<\/p>",
             "button_label": "Jetzt Anschauen",
@@ -55,6 +63,7 @@
   },
   "order": [
     "hero_6DREMU",
+    "rich_text_fw68rt",
     "feature-columns"
   ]
 }
