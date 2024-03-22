@@ -40,6 +40,17 @@
         "text_size": "medium"
       }
     },
+    "collection_9VTH7H": {
+      "type": "collection",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "",
+        "grid": 3,
+        "rows": 1,
+        "show_vendor": false,
+        "show_view_all": false
+      }
+    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
@@ -80,6 +91,7 @@
     "hero_6DREMU",
     "hero_pX3Nkg",
     "rich_text_mFCkGi",
+    "collection_9VTH7H",
     "feature-columns"
   ]
 }
