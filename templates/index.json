@@ -31,6 +31,15 @@
         "button_link": ""
       }
     },
+    "rich_text_mFCkGi": {
+      "type": "rich-text",
+      "settings": {
+        "full_width": true,
+        "section_title": "Your Journey starts here",
+        "text": "<p>At Gentle, <strong>our mission<\/strong> is simple: to <strong>provide premium<\/strong> beauty and wellness <strong>products<\/strong> that <strong>inspire confidence<\/strong> and <strong>promote self-care<\/strong>. <strong>Join us<\/strong> on your journey <strong>to look<\/strong> and feel <strong>amazing<\/strong>.<\/p>",
+        "text_size": "medium"
+      }
+    },
     "feature-columns": {
       "type": "feature-columns",
       "blocks": {
@@ -49,6 +58,7 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
+            "image": "shopify:\/\/shop_images\/S0ec87100a71f4ab2af76d0b45fae7b96K.webp",
             "title": "Gentles-Skin Improver",
             "text": "<p>Erleben Sie die revolutionäre Pflege für Ihren Hals mit unserem GentleSkin. Entwickelt, um die empfindliche Haut Ihres Halses zu straffen und zu glätten, bietet unser Gerät eine gezielte Lösung für ein jugendlicheres Erscheinungsbild. Genießen Sie straffere Konturen und eine verbesserte Hautelastizität für ein selbstbewusstes und elegantes Auftreten.<\/p>",
             "button_label": "Jetzt Anschauen",
@@ -64,21 +74,12 @@
         "title": "",
         "align_text": "left"
       }
-    },
-    "rich_text_mFCkGi": {
-      "type": "rich-text",
-      "settings": {
-        "full_width": true,
-        "section_title": "Your Journey starts here",
-        "text": "<p>At Gentle, <strong>our mission<\/strong> is simple: to <strong>provide premium<\/strong> beauty and wellness <strong>products<\/strong> that <strong>inspire confidence<\/strong> and <strong>promote self-care<\/strong>. <strong>Join us<\/strong> on your journey <strong>to look<\/strong> and feel <strong>amazing<\/strong>.<\/p>",
-        "text_size": "medium"
-      }
     }
   },
   "order": [
     "hero_6DREMU",
     "hero_pX3Nkg",
-    "feature-columns",
-    "rich_text_mFCkGi"
+    "rich_text_mFCkGi",
+    "feature-columns"
   ]
 }
