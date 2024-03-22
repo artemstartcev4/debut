@@ -17,13 +17,18 @@
         "button_link": ""
       }
     },
-    "rich_text_fw68rt": {
-      "type": "rich-text",
+    "hero_pX3Nkg": {
+      "type": "hero",
       "settings": {
-        "full_width": true,
-        "section_title": "",
-        "text": "<p><em><strong>Welcome to Gentle<\/strong><\/em><em>, where beauty meets convenience! Step inside and <\/em><em><strong>explore<\/strong><\/em><em> our curated collection of <\/em><em><strong>premium hair care, skincare, and wellness products<\/strong><\/em><em>. From luxurious hair tools to nourishing skincare essentials, <\/em><em><strong>we're here to help you look and feel amazing<\/strong><\/em><em> every day. <\/em><em><strong>Start <\/strong><\/em><em>your journey to <\/em><em><strong>a better self-care<\/strong><\/em><em> with us <\/em><em><strong>today!<\/strong><\/em><\/p>",
-        "text_size": "medium"
+        "image": "shopify:\/\/shop_images\/IMG_9999.jpg",
+        "alignment": "center",
+        "hero_layout": "full_width",
+        "hero_size": "small",
+        "text_size": "medium",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
       }
     },
     "feature-columns": {
@@ -59,11 +64,21 @@
         "title": "",
         "align_text": "left"
       }
+    },
+    "rich_text_mFCkGi": {
+      "type": "rich-text",
+      "settings": {
+        "full_width": true,
+        "section_title": "Your Journey starts here",
+        "text": "<p>At Gentle, <strong>our mission<\/strong> is simple: to <strong>provide premium<\/strong> beauty and wellness <strong>products<\/strong> that <strong>inspire confidence<\/strong> and <strong>promote self-care<\/strong>. <strong>Join us<\/strong> on your journey <strong>to look<\/strong> and feel <strong>amazing<\/strong>.<\/p>",
+        "text_size": "medium"
+      }
     }
   },
   "order": [
     "hero_6DREMU",
-    "rich_text_fw68rt",
-    "feature-columns"
+    "hero_pX3Nkg",
+    "feature-columns",
+    "rich_text_mFCkGi"
   ]
 }
