@@ -43,8 +43,8 @@
     "collection_9VTH7H": {
       "type": "collection",
       "settings": {
-        "title": "Featured collection",
-        "collection": "",
+        "title": "Bestsellers",
+        "collection": "frontpage",
         "grid": 3,
         "rows": 1,
         "show_vendor": false,
