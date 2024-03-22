@@ -40,6 +40,20 @@
         "text_size": "medium"
       }
     },
+    "hero_PJhHcP": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/IMG_0007.jpg",
+        "alignment": "center",
+        "hero_layout": "full_width",
+        "hero_size": "small",
+        "text_size": "medium",
+        "title": "",
+        "text": "",
+        "button_label": "Shop Now",
+        "button_link": "https:\/\/gentlecosmetics.net\/products\/gentles-skin-improver"
+      }
+    },
     "collection_9VTH7H": {
       "type": "collection",
       "settings": {
@@ -50,50 +64,13 @@
         "show_vendor": false,
         "show_view_all": false
       }
-    },
-    "slideshow_qAccLb": {
-      "type": "slideshow",
-      "blocks": {
-        "image_cdEgyg": {
-          "type": "image",
-          "settings": {
-            "alignment": "center center",
-            "slide_title": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "image_PK9gjt": {
-          "type": "image",
-          "settings": {
-            "alignment": "center center",
-            "slide_title": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_cdEgyg",
-        "image_PK9gjt"
-      ],
-      "settings": {
-        "slideshow_height": "adapt",
-        "text_size": "medium",
-        "text_alignment": "center center",
-        "show_overlay": true,
-        "autorotate": false,
-        "autorotate_speed": 5
-      }
     }
   },
   "order": [
     "hero_6DREMU",
     "hero_pX3Nkg",
     "rich_text_mFCkGi",
-    "collection_9VTH7H",
-    "slideshow_qAccLb"
+    "hero_PJhHcP",
+    "collection_9VTH7H"
   ]
 }
