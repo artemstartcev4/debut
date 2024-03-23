@@ -43,13 +43,13 @@
     "hero_PJhHcP": {
       "type": "hero",
       "custom_css": [
-        "\/* Text overlay button *\/.hero__btn {background-color: rgba(0, 0, 0, 0.5); \/* Hintergrundfarbe des Buttons in Schwarz mit 50% Transparenz *\/ color: #ffffff; \/* Textfarbe des Buttons *\/ border-radius: 5px; \/* Abrundung der Ecken des Buttons *\/ padding: 10px 20px; \/* Innenabstand des Buttons (oben\/unten links\/rechts) *\/}"
+        "\/* Text overlay button *\/.hero__btn {background-color: rgba( 0, 0, 0, 0.5 ); \/* Hintergrundfarbe des Buttons in Schwarz mit 50% Transparenz *\/ color: #ffffff; \/* Textfarbe des Buttons *\/ border-radius: 5px; \/* Abrundung der Ecken des Buttons *\/ padding: 10px 20px; \/* Innenabstand des Buttons (oben\/unten links\/rechts) *\/}"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/IMG_0007.jpg",
         "alignment": "center",
         "hero_layout": "full_width",
-        "hero_size": "medium",
+        "hero_size": "small",
         "text_size": "medium",
         "title": "",
         "text": "",
