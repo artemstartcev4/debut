@@ -1407,9 +1407,11 @@ a[href^="tel"] {
 /*================ Buttons ================*/
 <style>
   /* Text overlay button */
-  .custom__item--button .btn {
-    margin-left: 20px; /* Ändere diesen Wert entsprechend deinen Vorlieben */
-    margin-right: 20px; /* Ändere diesen Wert entsprechend deinen Vorlieben */
+  .custom__item--button .btn{
+    background-color: #ff0000; /* Hintergrundfarbe des Buttons */
+    color: #ffffff; /* Textfarbe des Buttons */
+    border-radius: 5px; /* Abrundung der Ecken des Buttons */
+    padding: 10px 20px; 
   }
 </style>
 .btn, .shopify-payment-button .shopify-payment-button__button--unbranded {
