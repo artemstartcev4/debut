@@ -2,7 +2,7 @@
   "current": {
     "checkout_header_image": "shopify:\/\/shop_images\/dreamstime_m_171330879_jpg.webp",
     "checkout_logo_image": "shopify:\/\/shop_images\/IMG_0019.jpg",
-    "checkout_logo_position": "center",
+    "checkout_logo_position": "left",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#f5f5f5",
     "checkout_input_background_color_mode": "transparent",
