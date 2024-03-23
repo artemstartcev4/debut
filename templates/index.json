@@ -67,6 +67,50 @@
         "show_vendor": false,
         "show_view_all": false
       }
+    },
+    "feature_columns_qmHctk": {
+      "type": "feature-columns",
+      "blocks": {
+        "text_block_jDjqeq": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "Add a title or tagline",
+            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_wtXHyy": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "Add a title or tagline",
+            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_kJDcG3": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "title": "Add a title or tagline",
+            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_jDjqeq",
+        "text_block_wtXHyy",
+        "text_block_kJDcG3"
+      ],
+      "settings": {
+        "title": "Customer reviews",
+        "align_text": "center"
+      }
     }
   },
   "order": [
@@ -74,6 +118,7 @@
     "hero_bMyaPg",
     "rich_text_mFCkGi",
     "hero_PJhHcP",
-    "collection_9VTH7H"
+    "collection_9VTH7H",
+    "feature_columns_qmHctk"
   ]
 }
