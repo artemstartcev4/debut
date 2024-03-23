@@ -48,8 +48,8 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/IMG_0007.jpg",
         "alignment": "center",
-        "hero_layout": "fixed_width",
-        "hero_size": "small",
+        "hero_layout": "full_width",
+        "hero_size": "adapt",
         "text_size": "medium",
         "title": "",
         "text": "",
