@@ -75,8 +75,9 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "title": "Add a title or tagline",
-            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "image": "shopify:\/\/shop_images\/rich-girl-blowout-hair-for-summer.webp",
+            "title": "Charlotte F.",
+            "text": "<p>Hey there! Just had to share my love for Gentle's Airstyler. It's seriously amazing! This 21-year-old girl is obsessed with the waves it gives me. And the quality? Top-notch. It's a total game-changer. Girl, you need this in your life!<\/p>",
             "button_label": "",
             "button_link": ""
           }
@@ -109,7 +110,7 @@
       ],
       "settings": {
         "title": "Customer reviews",
-        "align_text": "center"
+        "align_text": "left"
       }
     }
   },
