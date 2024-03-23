@@ -1408,7 +1408,7 @@ a[href^="tel"] {
 <style>
   /* Text overlay button */
   .custom__item--button .btn {
-    margin-left: 10px; /* Ändere diesen Wert entsprechend deinen Vorlieben */
+    margin-left: 100px; /* Ändere diesen Wert entsprechend deinen Vorlieben */
     margin-right: 10px; /* Ändere diesen Wert entsprechend deinen Vorlieben */
   }
 </style>
