@@ -42,6 +42,9 @@
     },
     "hero_PJhHcP": {
       "type": "hero",
+      "custom_css": [
+        "\/* Text overlay button *\/.overlay-button {padding-left: 270px; \/* Ändere diesen Wert entsprechend deinen Vorlieben *\/ padding-right: 270px; \/* Ändere diesen Wert entsprechend deinen Vorlieben *\/}"
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/IMG_0007.jpg",
         "alignment": "center",
