@@ -97,8 +97,9 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "title": "Add a title or tagline",
-            "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "image": "shopify:\/\/shop_images\/42fcae4e8b66839f34b9ee5d6b97a94d.jpg",
+            "title": "Heaver W.",
+            "text": "<p>Gentles-Skin Improver, was it worth it? Seriously, it's incredible! After just a month, my jawline looks like this. I'm beyond thrilled with the results! If you're looking to enhance your jawline and feel more confident, you need to try Gentle's Skin Improver my girl. It will change your life forever!<\/p>",
             "button_label": "",
             "button_link": ""
           }
