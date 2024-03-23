@@ -1405,15 +1405,7 @@ a[href^="tel"] {
   color: inherit; }
 
 /*================ Buttons ================*/
-<style>
-  /* Text overlay button */
-  .custom__item--button .btn{
-    background-color: #ff0000; /* Hintergrundfarbe des Buttons */
-    color: #ffffff; /* Textfarbe des Buttons */
-    border-radius: 5px; /* Abrundung der Ecken des Buttons */
-    padding: 10px 20px; 
-  }
-</style>
+
 .btn, .shopify-payment-button .shopify-payment-button__button--unbranded {
   -moz-user-select: none;
   -ms-user-select: none;
