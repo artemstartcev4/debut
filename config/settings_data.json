@@ -4,6 +4,7 @@
     "checkout_logo_image": "shopify:\/\/shop_images\/IMG_0019.jpg",
     "checkout_logo_position": "left",
     "checkout_logo_size": "small",
+    "checkout_input_background_color_mode": "transparent",
     "checkout_button_color": "#1773b0",
     "sections": {
       "header": {
