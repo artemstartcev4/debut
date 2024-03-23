@@ -43,7 +43,7 @@
     "hero_PJhHcP": {
       "type": "hero",
       "custom_css": [
-        "\/* Text overlay button *\/.hero__btn {background-color: rgba(0, 0, 0, 0.5); color: #ffffff; border-radius: 5px; padding: 10px 20px; margin-top: 10px; position: absolute; bottom: 20px; left: 0; right: 0; margin-left: auto; margin-right: auto; width: fit-content;}"
+        "\/* Text overlay button *\/.hero__btn {background-color: rgba(0, 0, 0, 0.5); color: #ffffff; border-radius: 5px; padding: 10px 20px; margin-top: 10px; position: absolute; bottom: 0px; left: 0; right: 0; margin-left: auto; margin-right: auto; width: fit-content;}"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/IMG_0007.jpg",
