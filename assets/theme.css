@@ -1486,7 +1486,7 @@ a[href^="tel"] {
 .btn--link {
   background-color: transparent;
   border: 0;
-  margin: 50;
+  margin: 0;
   color: var(--color-text);
   text-align: left; }
   .btn--link:not([disabled]):hover, .btn--link:focus {
