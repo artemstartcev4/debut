@@ -17,13 +17,13 @@
         "button_link": ""
       }
     },
-    "hero_pX3Nkg": {
+    "hero_bMyaPg": {
       "type": "hero",
       "settings": {
-        "image": "shopify:\/\/shop_images\/IMG_9999.jpg",
+        "image": "shopify:\/\/shop_images\/IMG_0015.jpg",
         "alignment": "center",
         "hero_layout": "full_width",
-        "hero_size": "small",
+        "hero_size": "medium",
         "text_size": "medium",
         "title": "",
         "text": "",
@@ -43,7 +43,7 @@
     "hero_PJhHcP": {
       "type": "hero",
       "custom_css": [
-        "\/* Text overlay button *\/.hero__btn {background-color: rgba(0, 0, 0, 0.5); color: #ffffff; border-radius: 5px; padding: 10px 20px; margin-top: 10px; position: absolute; bottom:85px; left: 0; right: 0; margin-left: auto; margin-right: auto; width: fit-content;}"
+        "\/* Text overlay button *\/.hero__btn {background-color: rgba(0, 0, 0, 0.5); color: #ffffff; border-radius: 5px; padding: 10px 20px; margin-top: 10px; position: absolute; bottom: 85px; left: 0; right: 0; margin-left: auto; margin-right: auto; width: fit-content;}"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/IMG_0007.jpg",
@@ -71,7 +71,7 @@
   },
   "order": [
     "hero_6DREMU",
-    "hero_pX3Nkg",
+    "hero_bMyaPg",
     "rich_text_mFCkGi",
     "hero_PJhHcP",
     "collection_9VTH7H"
