@@ -1,5 +1,10 @@
 {
   "current": {
+    "checkout_header_image": "shopify:\/\/shop_images\/dreamstime_m_171330879_jpg.webp",
+    "checkout_logo_image": "shopify:\/\/shop_images\/16d50cab-c24.jpg",
+    "checkout_body_background_image": "shopify:\/\/shop_images\/clean-girl-makyaji-ile-dogal-guzelligini-5b42.webp",
+    "checkout_sidebar_background_image": "shopify:\/\/shop_images\/make-up1-1024x526.jpg",
+    "checkout_button_color": "#1773b0",
     "sections": {
       "header": {
         "type": "header",
