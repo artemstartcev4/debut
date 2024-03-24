@@ -58,11 +58,27 @@
       "type": "product-back-to-collection",
       "settings": {
       }
+    },
+    "1711289762a4f0dbf1": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_97r6UQ": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_97r6UQ"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "product-recommendations",
     "main",
-    "product-back-to-collection"
+    "product-back-to-collection",
+    "1711289762a4f0dbf1"
   ]
 }
