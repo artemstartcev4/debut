@@ -125,7 +125,7 @@
         "text_alignment": "center center",
         "show_overlay": true,
         "autorotate": true,
-        "autorotate_speed": 7
+        "autorotate_speed": 9
       }
     }
   },
