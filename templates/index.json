@@ -114,6 +114,54 @@
         "title": "Customer reviews",
         "align_text": "left"
       }
+    },
+    "slideshow_VExnhx": {
+      "type": "slideshow",
+      "blocks": {
+        "image_8X4Wyf": {
+          "type": "image",
+          "settings": {
+            "alignment": "center center",
+            "slide_title": "Veronica",
+            "subheading": "Hey everyone, I wanted to talk about Gentle's Airstyler. Honestly, it's incredible. I'm completely hooked on the waves it creates. And let me tell you, the quality is unbeatable. Trust me, you won't regret adding this to your routine.",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "image_yDYz3M": {
+          "type": "image",
+          "settings": {
+            "alignment": "center center",
+            "slide_title": "Image slide",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "image_WhEUyf": {
+          "type": "image",
+          "settings": {
+            "alignment": "center center",
+            "slide_title": "Image slide",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_8X4Wyf",
+        "image_yDYz3M",
+        "image_WhEUyf"
+      ],
+      "settings": {
+        "slideshow_height": "medium",
+        "text_size": "medium",
+        "text_alignment": "center center",
+        "show_overlay": true,
+        "autorotate": false,
+        "autorotate_speed": 5
+      }
     }
   },
   "order": [
@@ -122,6 +170,7 @@
     "rich_text_mFCkGi",
     "hero_PJhHcP",
     "collection_9VTH7H",
-    "feature_columns_qmHctk"
+    "feature_columns_qmHctk",
+    "slideshow_VExnhx"
   ]
 }
