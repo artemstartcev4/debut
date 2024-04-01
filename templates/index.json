@@ -68,53 +68,6 @@
         "show_view_all": false
       }
     },
-    "feature_columns_qmHctk": {
-      "type": "feature-columns",
-      "blocks": {
-        "text_block_jDjqeq": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify:\/\/shop_images\/rich-girl-blowout-hair-for-summer.webp",
-            "title": "Charlotte F.",
-            "text": "<p>Hey there! Just had to share my love for Gentle's Airstyler. It's seriously amazing! This 21-year-old girl is obsessed with the waves it gives me. And the quality? Top-notch. It's a total game-changer. Girl, you need this in your life!<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "text_block_wtXHyy": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify:\/\/shop_images\/51f0bdb7617696a490ff082f4e36bb6b.jpg",
-            "title": "Samantha J.",
-            "text": "<p>Hear me out girl! I had to share my excitement about Gentle's Blackhead Remover. Seriously, it's amazing! As a girl struggling with stubborn blackheads, this little gem has been a lifesaver. After just a few uses, my blackheads vanished. It's easy, painless, and super effective. If you're dealing with pesky blackheads, you need this in your life!<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "text_block_kJDcG3": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify:\/\/shop_images\/42fcae4e8b66839f34b9ee5d6b97a94d.jpg",
-            "title": "Heaver W.",
-            "text": "<p>Gentles-Skin Improver, was it worth it? Seriously, it's incredible! After just a month, my jawline looks like this. I'm beyond thrilled with the results! If you're looking to enhance your jawline and feel more confident, you need to try Gentle's Skin Improver my girl. It will change your life forever!<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_block_jDjqeq",
-        "text_block_wtXHyy",
-        "text_block_kJDcG3"
-      ],
-      "settings": {
-        "title": "Customer reviews",
-        "align_text": "left"
-      }
-    },
     "slideshow_VExnhx": {
       "type": "slideshow",
       "blocks": {
@@ -173,7 +126,6 @@
     "rich_text_mFCkGi",
     "hero_PJhHcP",
     "collection_9VTH7H",
-    "feature_columns_qmHctk",
     "slideshow_VExnhx"
   ]
 }
