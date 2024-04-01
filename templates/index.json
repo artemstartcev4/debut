@@ -68,6 +68,15 @@
         "show_view_all": false
       }
     },
+    "rich_text_wTXd6z": {
+      "type": "rich-text",
+      "settings": {
+        "full_width": true,
+        "section_title": "Customer Reviews",
+        "text": "",
+        "text_size": "medium"
+      }
+    },
     "slideshow_VExnhx": {
       "type": "slideshow",
       "blocks": {
@@ -114,8 +123,8 @@
         "slideshow_height": "large",
         "text_size": "medium",
         "text_alignment": "center center",
-        "show_overlay": true,
-        "autorotate": false,
+        "show_overlay": false,
+        "autorotate": true,
         "autorotate_speed": 5
       }
     }
@@ -126,6 +135,7 @@
     "rich_text_mFCkGi",
     "hero_PJhHcP",
     "collection_9VTH7H",
+    "rich_text_wTXd6z",
     "slideshow_VExnhx"
   ]
 }
