@@ -123,9 +123,9 @@
         "slideshow_height": "large",
         "text_size": "medium",
         "text_alignment": "center center",
-        "show_overlay": false,
+        "show_overlay": true,
         "autorotate": true,
-        "autorotate_speed": 5
+        "autorotate_speed": 7
       }
     }
   },
