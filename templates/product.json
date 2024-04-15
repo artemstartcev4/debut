@@ -74,42 +74,12 @@
       ],
       "settings": {
       }
-    },
-    "custom_content_LQXBey": {
-      "type": "custom-content",
-      "blocks": {
-        "text_6xCzwz": {
-          "type": "text",
-          "settings": {
-            "title": "Talk about your brand",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-            "width": "50%",
-            "alignment": "center",
-            "align_text": "left"
-          }
-        },
-        "image_KQiFGj": {
-          "type": "image",
-          "settings": {
-            "width": "50%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "text_6xCzwz",
-        "image_KQiFGj"
-      ],
-      "settings": {
-        "title": "Custom content"
-      }
     }
   },
   "order": [
     "product-recommendations",
     "main",
     "product-back-to-collection",
-    "1711289762a4f0dbf1",
-    "custom_content_LQXBey"
+    "1711289762a4f0dbf1"
   ]
 }
