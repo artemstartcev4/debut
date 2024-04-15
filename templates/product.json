@@ -54,8 +54,9 @@
         "image_WLMxTb": {
           "type": "image",
           "settings": {
-            "feature_title": "Free Shipping",
-            "feature_text": "Order today, receive tomorrow",
+            "feature_title": "",
+            "feature_text": "",
+            "feature_image": "shopify:\/\/shop_images\/IMG_0243.jpg",
             "feature_url": "",
             "hide_image": false
           }
