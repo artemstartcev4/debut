@@ -64,8 +64,9 @@
         "image_XUQfwt": {
           "type": "image",
           "settings": {
-            "feature_title": "Price-match guarantee",
-            "feature_text": "Safe money when ordering with us",
+            "feature_title": "Global Shipping",
+            "feature_text": "",
+            "feature_image": "shopify:\/\/shop_images\/IMG_0245.jpg",
             "feature_url": "",
             "hide_image": false
           }
