@@ -74,17 +74,9 @@
         "image_MLt488": {
           "type": "image",
           "settings": {
-            "feature_title": "Hassle-free exchange",
+            "feature_title": "",
             "feature_text": "Receive a slip for exchanges",
-            "feature_url": "",
-            "hide_image": false
-          }
-        },
-        "image_FiXqAB": {
-          "type": "image",
-          "settings": {
-            "feature_title": "5.0 Google Reviews",
-            "feature_text": "Customer satisfaction #1 priority",
+            "feature_image": "shopify:\/\/shop_images\/IMG_0249.jpg",
             "feature_url": "",
             "hide_image": false
           }
@@ -93,8 +85,7 @@
       "block_order": [
         "image_WLMxTb",
         "image_XUQfwt",
-        "image_MLt488",
-        "image_FiXqAB"
+        "image_MLt488"
       ],
       "settings": {
         "feature_row": 4,
