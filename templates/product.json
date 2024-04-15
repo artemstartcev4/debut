@@ -30,19 +30,13 @@
           "type": "description",
           "settings": {
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-          }
         }
       },
       "block_order": [
         "title",
         "price",
         "buttons",
-        "description",
-        "share"
+        "description"
       ],
       "settings": {
         "show_quantity_selector": false,
@@ -52,6 +46,97 @@
         "media_size": "medium",
         "enable_image_zoom": true,
         "enable_video_looping": false
+      }
+    },
+    "ss_feature_1_HfUQ4k": {
+      "type": "ss-feature-1",
+      "blocks": {
+        "image_WLMxTb": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Free Shipping",
+            "feature_text": "Order today, receive tomorrow",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_XUQfwt": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Price-match guarantee",
+            "feature_text": "Safe money when ordering with us",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_MLt488": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Hassle-free exchange",
+            "feature_text": "Receive a slip for exchanges",
+            "feature_url": "",
+            "hide_image": false
+          }
+        },
+        "image_FiXqAB": {
+          "type": "image",
+          "settings": {
+            "feature_title": "5.0 Google Reviews",
+            "feature_text": "Customer satisfaction #1 priority",
+            "feature_url": "",
+            "hide_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_WLMxTb",
+        "image_XUQfwt",
+        "image_MLt488",
+        "image_FiXqAB"
+      ],
+      "settings": {
+        "feature_row": 4,
+        "feature_row_mobile": 3,
+        "feature_gap": 22,
+        "feature_gap_mobile": 20,
+        "feature_padding_vertical": 0,
+        "feature_padding_horizontal": 8,
+        "feature_radius": 12,
+        "feature_border_thickness": 0,
+        "feature_shadow": false,
+        "feature_heading_custom": false,
+        "feature_heading_font": "josefin_sans_n4",
+        "feature_heading_size": 16,
+        "feature_heading_size_mobile": 14,
+        "feature_heading_height": 130,
+        "feature_heading_mt": 2,
+        "feature_text_custom": false,
+        "feature_text_font": "josefin_sans_n4",
+        "feature_text_size": 12,
+        "feature_text_size_mobile": 0,
+        "feature_text_height": 130,
+        "feature_text_mt": 4,
+        "feature_icon_size": 52,
+        "feature_icon_size_mobile": 56,
+        "feature_bg": "#ffffff",
+        "feature_border_color": "#000000",
+        "feature_shadow_color": "#000000",
+        "feature_heading_color": "#000000",
+        "feature_text_color": "#000000",
+        "feature_icon_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 16,
+        "padding_bottom": 12,
+        "padding_horizontal": 7,
+        "padding_horizontal_mobile": 2,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
       }
     },
     "product-back-to-collection": {
@@ -79,6 +164,7 @@
   "order": [
     "product-recommendations",
     "main",
+    "ss_feature_1_HfUQ4k",
     "product-back-to-collection",
     "1711289762a4f0dbf1"
   ]
